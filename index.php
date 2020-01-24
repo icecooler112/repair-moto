@@ -30,6 +30,7 @@ session_start();
             <div class="sidebar-header">
             <?php if(isset($_SESSION['id'])) { ?>
             <center><h5><?php echo $_SESSION["First_Name"];?> <?php echo $_SESSION["Last_Name"];?></h5></center>
+            <center><h6>Status : <?php echo $_SESSION["status"];?></h6></center>
             <?php }else header("location:login.php"); ?>
                 
                 
@@ -101,6 +102,28 @@ session_start();
                 </div>
             </nav>
 
+
+            <div class="card ">
+              <div class="card-header ui-sortable-handle" style="cursor: move;">
+                <h3 class="card-title">
+                  <i class="fas fa-chart-pie mr-1"></i>
+                  สถิติ
+                </h3>
+                
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content p-0">
+                  <!-- Morris chart - Sales -->
+                  <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                      <canvas id="revenue-chart-canvas" height="375" style="height: 300px; display: block; width: 894px;" width="1117" class="chartjs-render-monitor"></canvas>                         
+                   </div>
+                  <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
+                    <canvas id="sales-chart-canvas" height="0" style="height: 0px; display: block; width: 0px;" width="0" class="chartjs-render-monitor"></canvas>                         
+                  </div>  
+                </div>
+              </div><!-- /.card-body -->
+            </div>
+            
             
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->

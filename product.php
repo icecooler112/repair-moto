@@ -28,6 +28,7 @@
             <div class="sidebar-header">
             <?php if(isset($_SESSION['id'])) { ?>
             <center><h5><?php echo $_SESSION["First_Name"];?> <?php echo $_SESSION["Last_Name"];?></h5></center>
+            <center><h6>Status : <?php echo $_SESSION["status"];?></h6></center>
             <?php }else header("location:login.php"); ?>
             </div>
 

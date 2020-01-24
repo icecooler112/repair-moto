@@ -1,6 +1,6 @@
 <?php session_start(); 
 ?>
-
+<?php include("include/connect.php"); ?>
 <!DOCTYPE html>
 
 <html>
@@ -29,6 +29,7 @@
             <div class="sidebar-header">
             <?php if(isset($_SESSION['id'])) { ?>
             <center><h5><?php echo $_SESSION["First_Name"];?> <?php echo $_SESSION["Last_Name"];?></h5></center>
+            <center><h6>Status : <?php echo $_SESSION["status"];?></h6></center>
             <?php }else header("location:login.php"); ?>
             </div>
 
@@ -99,28 +100,54 @@
             </nav>
 
             <h2>ข้อมูลการซ่อม</h2>
-            <table class="table table-bordered text-center">
+            <a href="index.php" class="btn btn-outline-primary mb-2 float-right"><i class="fas fa-plus-circle"></i>เพิ่มข้อมูลการซ่อม</a>
+  <table class="table table-bordered text-center">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">ชื่อ</th>
       <th scope="col">ประัติการซ่อม</th>
+      <th scope="col">ดูเพิ่ม</th>
+      <th scope="col">แก้ไข</th>
+      <th scope="col">ลบ</th>
+      
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-    </tr>
+  <?php
+          $sql = "SELECT * FROM admin_lg";
+          $result = $conn->query($sql);
+          $num = 0;
+          while ($row = $result->fetch_assoc()) {
+            $num++;
+            ?>
+            <tr>
+              <td><?php echo $num; ?></td>
+              <td><?php echo $row['First_Name']; ?> <?php echo $row['Last_Name']; ?></td>
+              <td></td>
+              <td><a href="../create_subject/update_subject.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-primary ">
+                  <i class="fas fa-eye"></i> view
+                </a>
+                </td>
+              <td>
+                <a href="../create_subject/update_subject.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-warning ">
+                  <i class="fas fa-edit"></i> edit
+                </a>
+              </td>
+              <td>
+                <?php if ($row['id']) { ?>
+                  <a href="#" onclick="deleteItem(<?php echo $row['id']; ?>);" class="btn btn-sm btn-outline-danger">
+                    <i class="fas fa-trash-alt"></i> Delete
+                  </a>
+                <?php } ?>
+              </td>
+          <?php } ?>  
+             
   </tbody>
 </table>
+<div class="card">
 
+</div>
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->

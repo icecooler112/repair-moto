@@ -1,5 +1,6 @@
 <?php session_start();
 ?>
+<?php include("include/connect.php"); ?>
 <!DOCTYPE html>
 
 <html>
@@ -28,6 +29,7 @@
             <div class="sidebar-header">
             <?php if(isset($_SESSION['id'])) { ?>
             <center><h5><?php echo $_SESSION["First_Name"];?> <?php echo $_SESSION["Last_Name"];?></h5></center>
+            <center><h6>Status : <?php echo $_SESSION["status"];?></h6></center>
             <?php }else header("location:login.php"); ?>
             </div>
 
@@ -96,33 +98,64 @@
                     </div>
                 </div>
             </nav>
+           
+            <h2>ข้อมูลประวัติลูกค้า</h2> 
+            <a href="user_manage/user_create.php" class="btn btn-outline-primary mb-2 float-right"><i class="fas fa-plus-circle"></i>เพิ่มข้อมูลลูกค้า</a>  
 
-            <h2>ข้อมูลประวัติลูกค้า</h2>
-
+           <!-- Table -->
 <table class="table table-bordered text-center">
+
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">ชื่อ</th>
-      <th scope="col">สกุล</th>
+      <th scope="col">ชื่อ-สกุล</th>
+      <th scope="col">เลขบัตรประจำตัวประชาชน</th>
       <th scope="col">เบอร์โทรศัพท์</th>
+      <th scope="col">Email</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
+  <?php
+          $sql = "SELECT * FROM user";
+          $result = $conn->query($sql);
+          $num = 0;
+          while ($row = $result->fetch_assoc()) {
+            $num++;
+            ?>
+            <tr>
+              <td><?php echo $num; ?></td>
+              <td><?php echo $row['name']; ?></td>
+              <td><?php echo $row['idcard']; ?></td>
+              <td><?php echo $row['phone']; ?></td>
+              <td><?php echo $row['email']; ?></td>
+              <td>
+                <a href="../create_subject/update_subject.php?id=<?php echo $row['Sub_id']; ?>" class="btn btn-sm btn-outline-warning ">
+                  <i class="fas fa-edit"></i> edit
+                </a>
+              </td>
+              <td>
+                <?php if ($row['id']) { ?>
+                  <a href="#" onclick="deleteItem(<?php echo $row['id']; ?>);" class="btn btn-sm btn-outline-danger">
+                    <i class="fas fa-trash-alt"></i> Delete
+                  </a>
+                <?php } ?>
+              </td>
+            </tr>
+          <?php } ?>     
   </tbody>
 </table>
+
+
+<!-- Script Delete -->
+<script>
+      function deleteItem(id) {
+        if (confirm('คุณต้องการลบข้อมูลใช่หรือไม่') == true) {
+          window.location = `user_manage/delete_user.php?id=${id}`;
+        }
+      };
+    </script>
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

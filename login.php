@@ -43,6 +43,7 @@
                 $_SESSION['id'] = $row['id'];
                 $_SESSION['First_Name'] = $row['First_Name'];
                 $_SESSION['Last_Name'] = $row['Last_Name'];
+                $_SESSION['status'] = $row['status'];
                 header('location:index.php');
             }else{
               echo "<script>";
