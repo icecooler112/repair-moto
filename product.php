@@ -1,5 +1,5 @@
-<?php session_start(); 
-?>
+<?php include("include/connect.php"); ?>
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html>
@@ -98,6 +98,66 @@
                 </div>
             </nav>
 
+            <a href="user_manage/user_create.php" class="btn btn-outline-primary mb-2 float-right"><i class="fas fa-plus-circle"></i>เพิ่มข้อมูลลูกค้า</a>  
+
+           <!-- Table -->
+<table class="table table-bordered text-center">
+
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">รูปภาพ</th>
+      <th scope="col">รหัสสินค้า</th>
+      <th scope="col">ชื่อสินค้า</th>
+      <th scope="col">ราคา</th>
+      <th scope="col">จำนวนสินค้า</th>
+      <th scope="col">Detail</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php
+          $sql = "SELECT * FROM user";
+          $result = $conn->query($sql);
+          $num = 0;
+          while ($row = $result->fetch_assoc()) {
+            $num++;
+            ?>
+            <tr>
+              <td><?php echo $num; ?></td>
+              <td><?php echo $row['image']; ?></td>
+              <td><?php echo $row['p_id']; ?></td>
+              <td><?php echo $row['pname']; ?></td>
+              <td><?php echo $row['price']; ?></td>
+              <td><?php echo $row['numproduct']; ?></td>
+              <td><?php echo $row['detail']; ?></td>
+              <td>
+                <a href="user_manage/edit_user.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-warning ">
+                  <i class="fas fa-edit"></i> edit
+                </a>
+              </td>
+              <td>
+                <?php if ($row['id']) { ?>
+                  <a href="#" onclick="deleteItem(<?php echo $row['id']; ?>);" class="btn btn-sm btn-outline-danger">
+                    <i class="fas fa-trash-alt"></i> Delete
+                  </a>
+                <?php } ?>
+              </td>
+            </tr>
+          <?php } ?>     
+  </tbody>
+</table>
+
+
+<!-- Script Delete -->
+<script>
+      function deleteItem(id) {
+        if (confirm('คุณต้องการลบข้อมูลใช่หรือไม่') == true) {
+          window.location = `user_manage/delete_user.php?id=${id}`;
+        }
+      };
+    </script>
             
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->

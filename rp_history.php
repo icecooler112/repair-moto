@@ -90,16 +90,15 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
+                        <ul class="nav navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <p><h4>Repair history</h4></p>
+                                <p><h3>ข้อมูลการซ่อม</h3></p>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
 
-            <h2>ข้อมูลการซ่อม</h2>
             <a href="index.php" class="btn btn-outline-primary mb-2 float-right"><i class="fas fa-plus-circle"></i>เพิ่มข้อมูลการซ่อม</a>
   <table class="table table-bordered text-center">
   <thead>

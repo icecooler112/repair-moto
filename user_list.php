@@ -90,16 +90,15 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
+                        <ul class="nav navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <p><h4>User List</h4></p>
+                                <p><h3>ข้อมูลประวัติลูกค้า</h3></p>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-           
-            <h2>ข้อมูลประวัติลูกค้า</h2> 
+
             <a href="user_manage/user_create.php" class="btn btn-outline-primary mb-2 float-right"><i class="fas fa-plus-circle"></i>เพิ่มข้อมูลลูกค้า</a>  
 
            <!-- Table -->
@@ -126,12 +125,12 @@
             ?>
             <tr>
               <td><?php echo $num; ?></td>
-              <td><?php echo $row['name']; ?></td>
+              <td><?php echo $row['fullname']; ?></td>
               <td><?php echo $row['idcard']; ?></td>
               <td><?php echo $row['phone']; ?></td>
               <td><?php echo $row['email']; ?></td>
               <td>
-                <a href="../create_subject/update_subject.php?id=<?php echo $row['Sub_id']; ?>" class="btn btn-sm btn-outline-warning ">
+                <a href="user_manage/edit_user.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-warning ">
                   <i class="fas fa-edit"></i> edit
                 </a>
               </td>
