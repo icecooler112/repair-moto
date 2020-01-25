@@ -99,7 +99,7 @@
                 </div>
             </nav>
 
-            <a href="user_manage/user_create.php" class="btn btn-outline-primary mb-2 float-right"><i class="fas fa-plus-circle"></i>เพิ่มข้อมูลลูกค้า</a>  
+            <a href="user_manage/user_create.php" class="btn btn-outline-primary mb-2 float-right"><i class="fas fa-plus-circle"></i> เพิ่มข้อมูลลูกค้า</a>  
 
            <!-- Table -->
 <table class="table table-bordered text-center">

@@ -17,14 +17,37 @@ $row = $result->fetch_assoc();
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 </head>
+<?php
+if(isset($_POST['submit'])){
+$sql = "UPDATE `user` 
+        SET `fullname` = '".$_POST['fullname']."',
+            `idcard` = '".$_POST['idcard']."',
+            `phone` = '".$_POST['phone']."',
+            `email` = '".$_POST['email']."'
+         WHERE user.`id` = '".$_POST['id']."';";
 
+
+$result = $conn->query($sql);
+if($result){
+     echo '<script> alert("แก้ไขข้อมูลลูกค้าสำเร็จ!")</script>'; 
+    
+    header('Refresh:0; url=../user_list.php');
+}else{
+    echo '<script> alert("แก้ไขข้อมูลลูกค้าไม่สำเร็จ")</script>'; 
+    
+    header('Refresh:0; url=../user_list.php');
+}
+
+}
+    
+?>
 <body>
 
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto mt-5">
                 <div class="card">
-                    <form action="edit_process_user.php" method="POST" enctype="multipart/form-data">           
+                    <form action="" method="POST" enctype="multipart/form-data">           
                         <div class="card-header text-center">
                             กรอกข้อมูลสมัครสมาชิก
                         </div>

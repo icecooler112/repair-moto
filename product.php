@@ -89,7 +89,7 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
+                        <ul class="nav navbar-nav mr-auto">
                             <li class="nav-item active">
                                 <p><h4>Product Menagement</h4></p>
                             </li>
@@ -97,8 +97,12 @@
                     </div>
                 </div>
             </nav>
-
-            <a href="user_manage/user_create.php" class="btn btn-outline-primary mb-2 float-right"><i class="fas fa-plus-circle"></i>เพิ่มข้อมูลลูกค้า</a>  
+            <form class="form-inline" method="GET" id="form" action="">
+            <input class="form-control w-50 p-2 ml-2" name="search" type="search" value="" placeholder="กรอกชื่อสินค้าที่ต้องการค้นหา" aria-label="Search">
+            <button class="btn btn-outline-primary ml-3" type="submit"><i class="fas fa-search"></i> Search </button> <button class="btn btn-outline-danger ml-3" action="product.php" type="submit">Reset</button>
+            
+              </form>
+            <a href="product_manage/product_create.php" class="btn btn-outline-success mb-2 float-right"><i class="fas fa-plus-circle"></i> เพิ่มสินค้า </a>  
 
            <!-- Table -->
 <table class="table table-bordered text-center">
@@ -106,19 +110,19 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">รูปภาพ</th>
-      <th scope="col">รหัสสินค้า</th>
       <th scope="col">ชื่อสินค้า</th>
       <th scope="col">ราคา</th>
       <th scope="col">จำนวนสินค้า</th>
-      <th scope="col">Detail</th>
+      <th scope="col">View</th>
       <th scope="col">Edit</th>
       <th scope="col">Delete</th>
     </tr>
   </thead>
   <tbody>
   <?php
-          $sql = "SELECT * FROM user";
+          $search=isset($_GET['search']) ? $_GET['search']:'';
+
+          $sql = "SELECT * FROM product WHERE pname LIKE '%$search%'";
           $result = $conn->query($sql);
           $num = 0;
           while ($row = $result->fetch_assoc()) {
@@ -126,21 +130,23 @@
             ?>
             <tr>
               <td><?php echo $num; ?></td>
-              <td><?php echo $row['image']; ?></td>
-              <td><?php echo $row['p_id']; ?></td>
               <td><?php echo $row['pname']; ?></td>
-              <td><?php echo $row['price']; ?></td>
+              <td><?php echo $row['price']; ?> บาท</td>
               <td><?php echo $row['numproduct']; ?></td>
-              <td><?php echo $row['detail']; ?></td>
               <td>
-                <a href="user_manage/edit_user.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-warning ">
+                <a href="product_manage/edit_product.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-primary ">
+                  <i class="fas fa-eye"></i> View
+                </a>
+              </td>
+              <td>
+                <a href="product_manage/edit_product.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-warning ">
                   <i class="fas fa-edit"></i> edit
                 </a>
               </td>
               <td>
                 <?php if ($row['id']) { ?>
                   <a href="#" onclick="deleteItem(<?php echo $row['id']; ?>);" class="btn btn-sm btn-outline-danger">
-                    <i class="fas fa-trash-alt"></i> Delete
+                    <i class="fas fa-trash"></i> Delete
                   </a>
                 <?php } ?>
               </td>
@@ -154,7 +160,7 @@
 <script>
       function deleteItem(id) {
         if (confirm('คุณต้องการลบข้อมูลใช่หรือไม่') == true) {
-          window.location = `user_manage/delete_user.php?id=${id}`;
+          window.location = `product_manage/delete_product.php?id=${id}`;
         }
       };
     </script>

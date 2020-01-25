@@ -99,13 +99,13 @@
                 </div>
             </nav>
 
-            <a href="index.php" class="btn btn-outline-primary mb-2 float-right"><i class="fas fa-plus-circle"></i>เพิ่มข้อมูลการซ่อม</a>
+            <a href="index.php" class="btn btn-outline-primary mb-2 float-right"><i class="fas fa-plus-circle"></i> เพิ่มข้อมูลการซ่อม</a>
   <table class="table table-bordered text-center">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">ชื่อ</th>
-      <th scope="col">ประัติการซ่อม</th>
+      <th scope="col">ประวัติการซ่อม</th>
       <th scope="col">ดูเพิ่ม</th>
       <th scope="col">แก้ไข</th>
       <th scope="col">ลบ</th>
