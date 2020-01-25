@@ -99,7 +99,7 @@
             </nav>
             <form class="form-inline" method="GET" id="form" action="">
             <input class="form-control w-50 p-2 ml-2" name="search" type="search" value="" placeholder="กรอกชื่อสินค้าที่ต้องการค้นหา" aria-label="Search">
-            <button class="btn btn-outline-primary ml-3" type="submit"><i class="fas fa-search"></i> Search </button> <button class="btn btn-outline-danger ml-3" action="product.php" type="submit">Reset</button>
+            <button class="btn btn-outline-primary ml-3" type="submit"><i class="fas fa-search"></i> Search </button> <button class="btn btn-outline-danger ml-3" action="product.php" type="submit"><i class="fas fa-eraser"></i> Reset</button>
             
               </form>
             <a href="product_manage/product_create.php" class="btn btn-outline-success mb-2 float-right"><i class="fas fa-plus-circle"></i> เพิ่มสินค้า </a>  
