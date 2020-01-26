@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>เพิ่มข้อมูลสินค้า</title>
-    <!-- ติดตั้งการใช้งาน CSS ต่างๆ -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
 </head>
 <body>
 
@@ -25,10 +22,12 @@
                  * ตรวจสอบเงื่อนไขที่ว่าการประมวณผลคำสั่งนี่สำเร็จหรือไม่
                  */                
                 if($result){
-                    echo '<script> alert("เพิ่มข้อมูลสินค้าสำเร็จ")</script>';
-                    header('Refresh:0; url=../product.php');
+                    echo '<div class="alert alert-success alert-dismissible fade show test-center" role="alert">
+                    <strong>สำเร็จ!</strong>ทำการเพิ่มข้อมูลสินค้าเรียบร้อย.
+                  </div>';
+                    header('Refresh:1; url=../product.php');
                 }else{
-                    echo 'no';
+                    echo '<script> alert("ไม่สามารถเพิ่มข้อมูลสินค้านี้ได้ Sorry!")</script>';
                 }
             }
     ?>
@@ -67,15 +66,15 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="detail" class="col-sm-3 col-form-label">Detail</label>
+                                <label for="detail" class="col-sm-3 col-form-label" >Detail</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="detail" name="detail" required>
+                                    <textarea type="text" class="form-control" id="detail" name="detail" rows="4" required></textarea>
                                 </div>
                             </div>
                            
                         <div class="card-footer text-center">
                             <input type="submit" name="submit" class="btn btn-outline-primary" value="ยืนยัน">
-                            <a class="btn btn-outline-danger" href="../user_list.php">ย้อนกลับ</a>
+                            <a class="btn btn-outline-danger" href="../product.php">ย้อนกลับ</a>
                         </div>
                     </form>
                 </div>

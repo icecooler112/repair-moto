@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-
+<?php include_once('include/connect.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,9 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Login</title>
-    <!-- ติดตั้งการใช้งาน CSS ต่างๆ -->
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
     <?php
@@ -55,7 +52,7 @@
     ?>
     <div class="container">
         <div class="row">
-            <div class="col-md-5 mx-auto mt-3">
+            <div class="col-md-6 mx-auto mt-5">
                 <div class="card">
                     <form action="" method="POST">           
                         <div class="card-header text-center">
@@ -75,7 +72,7 @@
                                 </div>    
                             </div>
                         </div>
-                        <div class="card-footer text-center">
+                        <div class="card-footer text-center col-12 p-3">
                             <input type="submit" name="submit" class="btn btn-primary" value="Login">
                         </div>
                     </form>

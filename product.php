@@ -11,14 +11,6 @@
 
     <title>Product Menagement</title>
 
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -89,7 +81,7 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav mr-auto">
+                        <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
                                 <p><h4>Product Menagement</h4></p>
                             </li>
@@ -98,7 +90,7 @@
                 </div>
             </nav>
             <form class="form-inline" method="GET" id="form" action="">
-            <input class="form-control w-50 p-2 ml-2" name="search" type="search" value="" placeholder="กรอกชื่อสินค้าที่ต้องการค้นหา" aria-label="Search">
+            <input class="form-control w-50 p-2 ml-1" name="search" type="search" value="" placeholder="กรอกชื่อสินค้าที่ต้องการค้นหา" aria-label="Search">
             <button class="btn btn-outline-primary ml-3" type="submit"><i class="fas fa-search"></i> Search </button> <button class="btn btn-outline-danger ml-3" action="product.php" type="submit"><i class="fas fa-eraser"></i> Reset</button>
             
               </form>
@@ -110,8 +102,9 @@
   <thead>
     <tr>
       <th scope="col">#</th>
+      <th scope="col">รูปภาพ</th>
       <th scope="col">ชื่อสินค้า</th>
-      <th scope="col">ราคา</th>
+      <th scope="col">ราคาต่อชิ้น</th>
       <th scope="col">จำนวนสินค้า</th>
       <th scope="col">View</th>
       <th scope="col">Edit</th>
@@ -130,6 +123,7 @@
             ?>
             <tr>
               <td><?php echo $num; ?></td>
+              <td></td>
               <td><?php echo $row['pname']; ?></td>
               <td><?php echo $row['price']; ?> บาท</td>
               <td><?php echo $row['numproduct']; ?></td>

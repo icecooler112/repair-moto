@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>เพิ่มข้อมูลลูกค้า</title>
-    <!-- ติดตั้งการใช้งาน CSS ต่างๆ -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
 </head>
 <body>
 
@@ -18,17 +15,21 @@
          */
         if(isset($_POST['submit'])){
            
-                $sql = "INSERT INTO `user` (`id`, `name`, `idcard`, `phone`, `email`) 
-                        VALUES (NULL, '".$_POST['name']."', '".$_POST['idcard']."', '".$_POST['phone']."', '".$_POST['email']."');";
+                $sql = "INSERT INTO `user` (`id`, `fullname`, `idcard`, `phone`, `email`) 
+                        VALUES (NULL, '".$_POST['fullname']."', '".$_POST['idcard']."', '".$_POST['phone']."', '".$_POST['email']."');";
                 $result = $conn->query($sql);
                 /**
                  * ตรวจสอบเงื่อนไขที่ว่าการประมวณผลคำสั่งนี่สำเร็จหรือไม่
                  */                
                 if($result){
-                    echo '<script> alert("เพิ่มข้อมูลสำเร็จ")</script>';
-                    header('Refresh:0; url=../user_list.php');
+                    echo '<div class="alert alert-success alert-dismissible fade show test-center" role="alert">
+                    <strong>สำเร็จ!</strong>ทำการเพิ่มข้อมูลลูกค้าเรียบร้อย.
+                  </div>';
+                    header('Refresh:1; url=../user_list.php');
                 }else{
-                    echo 'no';
+                    echo '<div class="alert alert-danger alert-dismissible fade show test-center" role="alert">
+                    <strong>ล้มเหลว!</strong>ไม่สามารถทำการกรอกข้อมูลลูกค้าได้ กรุณาลองใหม่อีกครั้ง.';
+                    header('Refresh:1; url=user_create.php');
                 }
             }
         
@@ -44,9 +45,9 @@
                         </div>
                         <div class="card-body">
                             <div class="form-group row">
-                                <label for="name" class="col-sm-3 col-form-label">ชื่อ-สกุล</label>
+                                <label for="fullname" class="col-sm-3 col-form-label">ชื่อ-สกุล</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="name" name="name" required>
+                                    <input type="text" class="form-control" id="fullname" name="fullname" required>
                                 </div>
                             </div>
                             <div class="form-group row">

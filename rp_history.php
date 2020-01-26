@@ -11,15 +11,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Repair history</title>
-
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -90,7 +81,7 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav mr-auto">
+                        <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
                                 <p><h3>ข้อมูลการซ่อม</h3></p>
                             </li>
@@ -99,7 +90,7 @@
                 </div>
             </nav>
 
-            <a href="index.php" class="btn btn-outline-primary mb-2 float-right"><i class="fas fa-plus-circle"></i> เพิ่มข้อมูลการซ่อม</a>
+            <a href="index.php" class="btn btn-outline-success mb-2 float-right"><i class="fas fa-plus-circle"></i> เพิ่มข้อมูลการซ่อม</a>
   <table class="table table-bordered text-center">
   <thead>
     <tr>

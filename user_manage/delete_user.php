@@ -1,3 +1,4 @@
+
 <?php include_once('../include/connect.php'); ?>
 <?php
  $id = $_GET['id'];
@@ -6,11 +7,13 @@ if (isset($id)){
         $result = $conn->query($sql);
 
 if ($conn->affected_rows){
-    echo '<script> alert("ลบข้อมูลสำเร็จ!")</script>'; 
-    header('Refresh:0; url=../user_list.php');
+    echo '<div class="alert alert-success alert-dismissible fade show test-center" role="alert">
+                    <strong>สำเร็จ!</strong>ทำการเพิ่มข้อมูลลูกค้าเรียบร้อย.
+                  </div>'; 
+    header('Refresh:1; url=../user_list.php');
 }else{
     echo '<script> alert("ไม่สามารถลบข้อมูลออกได้ Sorry!")</script>'; 
-    header('Refresh:0; url=../user_list.php');
+    header('Refresh:1; url=../user_list.php');
 }
 
 
