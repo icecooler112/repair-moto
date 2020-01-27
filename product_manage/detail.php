@@ -1,16 +1,16 @@
 <?php session_start(); 
 ?>
-<?php include("include/connect.php"); ?>
+<?php include("../include/connect.php"); ?>
 <!DOCTYPE html>
-
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <title>Repair history</title>
+<!-- Our Custom CSS -->
+<link rel="stylesheet" href="../css/style.css">
+
 </head>
 
 <body>
@@ -25,17 +25,17 @@
             </div>
 
             <ul class="list-unstyled components">
-                <li >
-                    <a href="index.php"><i class="fas fa-chart-pie mr-1"></i> รายงาน</a>
+                <li>
+                    <a href="../index.php">รายงาน</a>
                 </li>
                 <li  >
-                    <a href="user_list.php"><i class="fas fa-users"></i> ข้อมูลลูกค้า</a>
+                    <a href="../user_list.php">ข้อมูลลูกค้า</a>
                 </li>
-                <li  class="active">
-                    <a href="rp_history.php"><i class="fas fa-bell"></i> ประวัติการซ่อม</a>
+                <li>
+                    <a href="../rp_history.php">ประวัติการซ่อม</a>
                 </li>
-                <li >
-                    <a href="product.php"><i class="fas fa-box"></i> ข้อมูลสินค้า</a>
+                <li class="active">
+                    <a href="../product.php">ข้อมูลสินค้า</a>
                 </li>
             </ul>
 
@@ -84,61 +84,36 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <p><h3>จัดการข้อมูลการซ่อม</h3></p>
+                                <p><h3>ข้อมูลสินค้า</h3></p>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
+            <?php
+                            $id = $_GET['id'];
+                             $sql = "SELECT * FROM product WHERE id = '" . $id . "' ";
+                            $result = $conn->query($sql);
+                            $row = $result->fetch_assoc()
+                            
+                                ?>
+            <div class="card-header text-center">
+                            รายละเอียดสินค้า
+                        </div>
+            <div class="card-body ">
+                            <div class="form-group text-center">
+                            <div class="report_name_th"><b>รหัสสินค้า </b> : <label><?php echo $row['p_id']; ?></label></div>
+                            <div class="report_name_th"><b>ชื่อสินค้า </b> : <label><?php echo $row['pname']; ?></label></div>
+                            <div class="report_name_th"><b>ราคาสินค้าต่อชิ้น </b> : <label><?php echo $row['price']; ?> <b>บาท</b></label></div>
+                            <hr>
+                            <div class="report_name_th"><b>รายละเอียดของสินค้า </b> : <label><?php echo $row['detail']; ?></label></div>
+            <div class="card-footer text-center">
+                            <a class="btn btn-outline-danger" href="../product.php">ย้อนกลับ</a>
 
-            <a href="index.php" class="btn btn-outline-success mb-2 float-right"><i class="fas fa-plus-circle"></i> เพิ่มข้อมูลการซ่อม</a>
-  <table class="table table-bordered text-center">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">ชื่อ</th>
-      <th scope="col">ประวัติการซ่อม</th>
-      <th scope="col">ดูเพิ่ม</th>
-      <th scope="col">แก้ไข</th>
-      <th scope="col">ลบ</th>
-      
-    </tr>
-  </thead>
-  <tbody>
-  <?php
-          $sql = "SELECT * FROM user";
-          $result = $conn->query($sql);
-          $num = 0;
-          while ($row = $result->fetch_assoc()) {
-            $num++;
-            ?>
-            <tr>
-              <td><?php echo $num; ?></td>
-              <td><?php echo $row['fullname']; ?></td>
-              <td></td>
-              <td><a href="../create_subject/update_subject.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-primary ">
-                  <i class="fas fa-eye"></i> ดูเพิ่ม
-                </a>
-                </td>
-              <td>
-                <a href="../create_subject/update_subject.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-warning ">
-                  <i class="fas fa-edit"></i> แก้ไข
-                </a>
-              </td>
-              <td>
-                <?php if ($row['id']) { ?>
-                  <a href="#" onclick="deleteItem(<?php echo $row['id']; ?>);" class="btn btn-sm btn-outline-danger">
-                    <i class="fas fa-trash-alt"></i> ลบ
-                  </a>
-                <?php } ?>
-              </td>
-          <?php } ?>  
-             
-  </tbody>
-</table>
-<div class="card">
+                        </div>
+                                
+                    </div>     
 
-</div>
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->

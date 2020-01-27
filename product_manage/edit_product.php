@@ -41,6 +41,7 @@ if($result){
 ?>
 <body>
 
+
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto mt-5">
@@ -79,14 +80,14 @@ if($result){
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="detail" class="col-sm-3 col-form-label">Detail</label>
+                                <label for="detail" class="col col-form-label">Detail</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="detail" name="detail" value="<?php echo $row['detail']; ?>" required>
                                 </div>
                             </div>
                         <div class="card-footer text-center">
                             <input type="submit" name="submit" class="btn btn-outline-primary" value="ยืนยัน">
-                            <a class="btn btn-outline-danger" href="../user_list.php">ย้อนกลับ</a>
+                            <a class="btn btn-outline-danger" href="../product.php">ย้อนกลับ</a>
                         </div>
                     </form>
                 </div>

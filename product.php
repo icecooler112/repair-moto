@@ -20,29 +20,29 @@
             <div class="sidebar-header">
             <?php if(isset($_SESSION['id'])) { ?>
             <center><h5><?php echo $_SESSION["First_Name"];?> <?php echo $_SESSION["Last_Name"];?></h5></center>
-            <center><h6>Status : <?php echo $_SESSION["status"];?></h6></center>
+            <center><h6>สถานะ : <?php echo $_SESSION["status"];?></h6></center>
             <?php }else header("location:login.php"); ?>
             </div>
 
-            <ul class="list-unstyled components">
+ <ul class="list-unstyled components">
                 <li>
-                    <a href="index.php">Dashboard</a>
+                    <a href="index.php"><i class="fas fa-chart-pie mr-1"></i> รายงาน</a>
+                </li>
+                <li  >
+                    <a href="user_list.php"><i class="fas fa-users"></i> ข้อมูลลูกค้า</a>
                 </li>
                 <li>
-                    <a href="user_list.php">User List</a>
-                </li>
-                <li>
-                    <a href="rp_history.php">Repair history</a>
+                    <a href="rp_history.php"><i class="fas fa-bell"></i> ประวัติการซ่อม</a>
                 </li>
                 <li class="active">
-                    <a href="product.php">Products</a>
+                    <a href="product.php"><i class="fas fa-box"></i> ข้อมูลสินค้า</a>
                 </li>
             </ul>
 
             <ul class="list-unstyled CTAs">
                 <li>
                 <a class="nav-link" href="#" data-toggle="modal" data-target="#LogoutModal">
-              <i class="material-icons">Logout</i>
+              <i class="material-icons">ออกจากระบบ</i>
             </a>
                 </li>
             </ul>
@@ -52,18 +52,19 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title text-dark">Logout ?</h5>
+        <h5 class="modal-title text-dark">ออกจากระบบ ?</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body text-center">
           <h1 style="font-size:5.5rem;"><i class="fa fa-sign-out text-danger" aria-hidden="true"></i></h1>
-          <p class="text-dark">Are you sure you want to log-out?</p>
+          <p class="text-dark">คุณต้องการออกจากระบบใช่หรือไม่?</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <a href="logout.php" class="btn btn-danger">Logout</a>
+      <a href="logout.php" class="btn btn-danger">ออกจากระบบ</a>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+        
       </div>
     </div>
   </div>
@@ -83,7 +84,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <p><h4>Product Menagement</h4></p>
+                                <p><h4>จัดการข้อมูลสินค้า</h4></p>
                             </li>
                         </ul>
                     </div>
@@ -106,9 +107,9 @@
       <th scope="col">ชื่อสินค้า</th>
       <th scope="col">ราคาต่อชิ้น</th>
       <th scope="col">จำนวนสินค้า</th>
-      <th scope="col">View</th>
-      <th scope="col">Edit</th>
-      <th scope="col">Delete</th>
+      <th scope="col">ดูเพิ่ม</th>
+      <th scope="col">แก้ไข</th>
+      <th scope="col">ลบ</th>
     </tr>
   </thead>
   <tbody>
@@ -128,19 +129,19 @@
               <td><?php echo $row['price']; ?> บาท</td>
               <td><?php echo $row['numproduct']; ?></td>
               <td>
-                <a href="product_manage/edit_product.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-primary ">
-                  <i class="fas fa-eye"></i> View
+                <a href="product_manage/detail.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-primary ">
+                  <i class="fas fa-eye"></i> ดูเพิ่ม
                 </a>
               </td>
               <td>
                 <a href="product_manage/edit_product.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-warning ">
-                  <i class="fas fa-edit"></i> edit
+                  <i class="fas fa-edit"></i> แก้ไข
                 </a>
               </td>
               <td>
                 <?php if ($row['id']) { ?>
                   <a href="#" onclick="deleteItem(<?php echo $row['id']; ?>);" class="btn btn-sm btn-outline-danger">
-                    <i class="fas fa-trash"></i> Delete
+                    <i class="fas fa-trash"></i> ลบ
                   </a>
                 <?php } ?>
               </td>

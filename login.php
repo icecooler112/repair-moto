@@ -36,17 +36,18 @@
                  * แสดงข้อมูลของ user 
                  * เก็บข้อมูลเข้าสู่ session เพื่อนำไปใช้งาน 
                  */
+                
                 $row = $result->fetch_assoc();
                 $_SESSION['id'] = $row['id'];
                 $_SESSION['First_Name'] = $row['First_Name'];
                 $_SESSION['Last_Name'] = $row['Last_Name'];
                 $_SESSION['status'] = $row['status'];
+               
                 header('location:index.php');
             }else{
-              echo "<script>";
-        echo "alert(\" Username หรือ  Password ของคุณไม่ถูกต้อง\");";
-        echo "</script>";
-        header('Refresh:0; url=login.php');
+        echo '<div class="alert alert-warning alert-dismissible fade show test-center" role="alert">
+        <strong>ล้มเหลว!</strong>ชื่อผู้ใช้หรือรหัสผ่านของคุณไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง.
+      </div>';
             } 
         }
     ?>
@@ -60,20 +61,20 @@
                         </div>
                         <div class="card-body">
                             <div class="form-group row">
-                                <label for="username" class="col-sm-3 col-form-label">Username</label>
+                                <label for="username" class="col-sm-3 col-form-label">ชื่อผู้ใช้</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="username" name="username" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="password" class="col-sm-3 col-form-label">Password</label>
+                                <label for="password" class="col-sm-3 col-form-label">รหัสผ่าน</label>
                                 <div class="col-sm-9">
                                     <input type="password" class="form-control" id="password" name="password" required>
                                 </div>    
                             </div>
                         </div>
                         <div class="card-footer text-center col-12 p-3">
-                            <input type="submit" name="submit" class="btn btn-primary" value="Login">
+                            <input type="submit" name="submit" class="btn btn-primary" value="เข้าสู่ระบบ">
                         </div>
                     </form>
                 </div>
