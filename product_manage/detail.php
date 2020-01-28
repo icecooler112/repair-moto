@@ -94,7 +94,8 @@
                             $id = $_GET['id'];
                              $sql = "SELECT * FROM product WHERE id = '" . $id . "' ";
                             $result = $conn->query($sql);
-                            $row = $result->fetch_assoc()
+                            while ($row = $result->fetch_assoc()) {
+                                $_SESSION['image'] = $row['image'];
                             
                                 ?>
             <div class="card-header text-center">
@@ -102,6 +103,10 @@
                         </div>
             <div class="card-body ">
                             <div class="form-group text-center">
+                            <div class="report_name_th">
+                            <?php if(isset($_SESSION['id'])) { ?>
+              <img src="../upload/<?php echo $_SESSION['image'];?>" class="figure-img img-fluid rounded" width="300" height="300" alt="">
+              <?php } ?></div>
                             <div class="report_name_th"><b>รหัสสินค้า </b> : <label><?php echo $row['p_id']; ?></label></div>
                             <div class="report_name_th"><b>ชื่อสินค้า </b> : <label><?php echo $row['pname']; ?></label></div>
                             <div class="report_name_th"><b>ราคาสินค้าต่อชิ้น </b> : <label><?php echo $row['price']; ?> <b>บาท</b></label></div>
@@ -113,7 +118,7 @@
                         </div>
                                 
                     </div>     
-
+                    <?php } ?> 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->

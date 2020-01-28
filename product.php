@@ -121,12 +121,16 @@
           $result = $conn->query($sql);
           $num = 0;
           while ($row = $result->fetch_assoc()) {
+            $_SESSION['image'] = $row['image'];
             $num++;
             ?>
             <tr>
               <td><?php echo $num; ?></td>
               <td>
-              <img src="upload/<?php echo $_SESSION['image'];?>" class="figure-img img-fluid rounded" width="200" height="200" alt=""></td>
+              <?php if(isset($_SESSION['id'])) { ?>
+              <img src="upload/<?php echo $_SESSION['image'];?>" class="figure-img img-fluid rounded" width="100" height="100" alt="">
+              <?php } ?>
+              </td>
               <td><?php echo $row['p_id']; ?></td>
               <td><?php echo $row['pname']; ?></td>
               <td><?php echo $row['price']; ?> บาท</td>
