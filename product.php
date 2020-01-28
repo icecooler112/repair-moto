@@ -104,6 +104,7 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">รูปภาพ</th>
+      <th scope="col">รหัสสินค้า</th>
       <th scope="col">ชื่อสินค้า</th>
       <th scope="col">ราคาต่อชิ้น</th>
       <th scope="col">จำนวนสินค้า</th>
@@ -124,7 +125,9 @@
             ?>
             <tr>
               <td><?php echo $num; ?></td>
-              <td></td>
+              <td>
+              <img src="upload/<?php echo $_SESSION['image'];?>" class="figure-img img-fluid rounded" width="200" height="200" alt=""></td>
+              <td><?php echo $row['p_id']; ?></td>
               <td><?php echo $row['pname']; ?></td>
               <td><?php echo $row['price']; ?> บาท</td>
               <td><?php echo $row['numproduct']; ?></td>
