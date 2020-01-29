@@ -105,8 +105,8 @@
                             <div class="form-group text-center">
                             <div class="report_name_th">
                             <?php if(isset($_SESSION['id'])) { ?>
-              <img src="../upload/<?php echo $_SESSION['image'];?>" class="figure-img img-fluid rounded" width="300" height="300" alt="">
-              <?php } ?></div>
+                            <img src="../upload/<?php echo $_SESSION['image'];?>" class="figure-img img-fluid rounded" width="300" height="300" alt="">
+                            <?php } ?></div>
                             <div class="report_name_th"><b>รหัสสินค้า </b> : <label><?php echo $row['p_id']; ?></label></div>
                             <div class="report_name_th"><b>ชื่อสินค้า </b> : <label><?php echo $row['pname']; ?></label></div>
                             <div class="report_name_th"><b>ราคาสินค้าต่อชิ้น </b> : <label><?php echo $row['price']; ?> <b>บาท</b></label></div>

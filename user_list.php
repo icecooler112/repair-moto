@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 
 <html>
-
+d
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,7 +63,7 @@
       <div class="modal-footer">
       <a href="logout.php" class="btn btn-danger">ออกจากระบบ</a>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-        
+
       </div>
     </div>
   </div>
@@ -75,7 +75,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
 
-                   
+
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
@@ -89,13 +89,13 @@
                     </div>
                 </div>
             </nav>
-            
+
             <form class="form-inline" method="GET" id="form" action="">
             <input class="form-control w-50 p-2 ml-1" name="search" type="search" value="" placeholder="กรอกชื่อลูกค้าที่ต้องการค้นหา" aria-label="Search">
             <button class="btn btn-outline-primary ml-3" type="submit"><i class="fas fa-search"></i> Search </button> <button class="btn btn-outline-danger ml-3" action="product.php" type="submit"><i class="fas fa-eraser"></i> Reset</button>
-            
+
               </form>
-            <a href="user_manage/user_create.php" class="btn btn-outline-success mb-2 float-right"><i class="fas fa-plus-circle"></i> เพิ่มข้อมูลลูกค้า</a>  
+            <a href="user_manage/user_create.php" class="btn btn-outline-success mb-2 float-right"><i class="fas fa-plus-circle"></i> เพิ่มข้อมูลลูกค้า</a>
 
            <!-- Table -->
 <table class="table table-bordered text-center">
@@ -141,8 +141,8 @@
               </td>
             </tr>
           <?php } ?>
-          
-               
+
+
   </tbody>
 </table>
 
