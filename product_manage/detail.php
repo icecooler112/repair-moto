@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="../css/style.css">
 
 </head>
-d
+
 <body>
     <div class="wrapper">
         <!-- Sidebar  -->
