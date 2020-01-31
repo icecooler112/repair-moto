@@ -156,8 +156,11 @@
           <?php } ?>
   </tbody>
 </table>
+<div class="container-fluid">
+<a href="product_manage/product_create.php" class="btn btn-outline-success col-12"><i class="fas fa-plus-circle"></i> เพิ่มสินค้า </a>
+</div>
 
-
+</form>
 <!-- Script Delete -->
 <script>
       function deleteItem(id) {
