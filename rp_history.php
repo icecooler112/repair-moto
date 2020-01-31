@@ -1,4 +1,4 @@
-<?php session_start(); 
+<?php session_start();
 ?>
 <?php include("include/connect.php"); ?>
 <!DOCTYPE html>
@@ -64,7 +64,7 @@
       <div class="modal-footer">
       <a href="logout.php" class="btn btn-danger">ออกจากระบบ</a>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-        
+
       </div>
     </div>
   </div>
@@ -76,7 +76,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
 
-                   
+
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
@@ -90,7 +90,11 @@
                     </div>
                 </div>
             </nav>
+            <form class="form-inline" method="GET" id="form" action="">
+            <input class="form-control w-50 p-2 ml-1" name="search" type="search" value="" placeholder="กรอกชื่อลูกค้าที่ต้องการค้นหา" aria-label="Search">
+            <button class="btn btn-outline-primary ml-3" type="submit"><i class="fas fa-search"></i> Search </button> <button class="btn btn-outline-danger ml-3" action="product.php" type="submit"><i class="fas fa-eraser"></i> Reset</button>
 
+              </form>
             <a href="index.php" class="btn btn-outline-success mb-2 float-right"><i class="fas fa-plus-circle"></i> เพิ่มข้อมูลการซ่อม</a>
   <table class="table table-bordered text-center">
   <thead>
@@ -101,17 +105,19 @@
       <th scope="col">ดูเพิ่ม</th>
       <th scope="col">แก้ไข</th>
       <th scope="col">ลบ</th>
-      
+
     </tr>
   </thead>
   <tbody>
-  <?php
-          $sql = "SELECT * FROM user";
-          $result = $conn->query($sql);
-          $num = 0;
-          while ($row = $result->fetch_assoc()) {
-            $num++;
-            ?>
+    <?php
+             $search=isset($_GET['search']) ? $_GET['search']:'';
+
+             $sql = "SELECT * FROM user WHERE fullname LIKE '%$search%'";
+             $result = $conn->query($sql);
+             $num = 0;
+             while ($row = $result->fetch_assoc()) {
+               $num++;
+               ?>
             <tr>
               <td><?php echo $num; ?></td>
               <td><?php echo $row['fullname']; ?></td>
@@ -132,8 +138,8 @@
                   </a>
                 <?php } ?>
               </td>
-          <?php } ?>  
-             
+          <?php } ?>
+
   </tbody>
 </table>
 <div class="card">
@@ -149,4 +155,3 @@
 </body>
 
 </html>
-

@@ -20,9 +20,9 @@
              * ตรวจสอบเงื่อนไขที่ว่า สามารถย้ายไฟล์รูปภาพเข้าสู่ storage ของเราได้หรือไม่
              */
             if(move_uploaded_file($_FILES['fileUpload']['tmp_name'], '../upload/' .$new_name)){
-                
-            
-                $sql = "INSERT INTO `product` (`id`, `pname`, `p_id`, `price`, `numproduct`, `detail`, `image`) 
+
+
+                $sql = "INSERT INTO `product` (`id`, `pname`, `p_id`, `price`, `numproduct`, `detail`, `image`)
                         VALUES (NULL, '".$_POST['pname']."', '".$_POST['p_id']."', '".$_POST['price']."', '".$_POST['numproduct']."', '".$_POST['detail']."' , '". $new_name."');";
                 $result = $conn->query($sql);
 
@@ -43,7 +43,7 @@
         <div class="row">
             <div class="col-md-8 mx-auto mt-5">
                 <div class="card">
-                    <form action="" method="POST" enctype="multipart/form-data">           
+                    <form action="" method="POST" enctype="multipart/form-data">
                         <div class="card-header text-center">
                             กรอกข้อมูลสินค้า
                         </div>
@@ -58,7 +58,7 @@
                                 <label for="p_id" class="col-sm-3 col-form-label">รหัสสินค้า</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="p_id" name="p_id" required>
-                                </div>    
+                                </div>
                             </div>
                             <div class="form-group row">
                                 <label for="price" class="col-sm-3 col-form-label">ราคา</label>
@@ -82,13 +82,13 @@
                                 <label for="fileUpload" class="col-sm-3 col-form-label">อัพโหลดรูปภาพ</label>
                                 <div class="col-sm-9">
                                     <input type="file" class="form-control" id="fileUpload" name="fileUpload" onchange="readURL(this)">
-                                </div>    
+                                </div>
                             </div>
                             <figure class="figure text-center d-none">
                                 <img id="imgUpload" class="figure-img img-fluid rounded" alt="">
                             </figure>
                         </div>
-                           
+
                         <div class="card-footer text-center">
                             <input type="submit" name="submit" class="btn btn-outline-primary" value="ยืนยัน">
                             <a class="btn btn-outline-danger" href="../product.php">ย้อนกลับ</a>
@@ -99,12 +99,12 @@
         </div>
     </div>
     </div>
-    <!-- ติดตั้งการใช้งาน Javascript ต่างๆ -->       
+    <!-- ติดตั้งการใช้งาน Javascript ต่างๆ -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <!-- <script>
+    <script>
         /**
          * ประกาศ function readURL()
          * เพื่อทำการตรวจสอบว่า มีไฟล์ภาพที่กำหนดถูกอัพโหลดหรือไม่
@@ -117,12 +117,12 @@
                 reader.onload = function (e) {
                     console.log(e.target.result)
                     $('#imgUpload').attr('src',e.target.result).width(240);
-                }  
+                }
                 reader.readAsDataURL(input.files[0]);
-            }         
+            }
         }
-    </script> -->
+    </script>
 
-    
+
 </body>
 </html>

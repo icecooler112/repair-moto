@@ -64,7 +64,7 @@
       <div class="modal-footer">
       <a href="logout.php" class="btn btn-danger">ออกจากระบบ</a>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-        
+
       </div>
     </div>
   </div>
@@ -76,7 +76,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
 
-                   
+
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
@@ -93,9 +93,9 @@
             <form class="form-inline" method="GET" id="form" action="">
             <input class="form-control w-50 p-2 ml-1" name="search" type="search" value="" placeholder="กรอกชื่อสินค้าที่ต้องการค้นหา" aria-label="Search">
             <button class="btn btn-outline-primary ml-3" type="submit"><i class="fas fa-search"></i> Search </button> <button class="btn btn-outline-danger ml-3" action="product.php" type="submit"><i class="fas fa-eraser"></i> Reset</button>
-            
+
               </form>
-            <a href="product_manage/product_create.php" class="btn btn-outline-success mb-2 float-right"><i class="fas fa-plus-circle"></i> เพิ่มสินค้า </a>  
+            <a href="product_manage/product_create.php" class="btn btn-outline-success mb-2 float-right"><i class="fas fa-plus-circle"></i> เพิ่มสินค้า </a>
 
            <!-- Table -->
 <table class="table table-bordered text-center">
@@ -153,7 +153,7 @@
                 <?php } ?>
               </td>
             </tr>
-          <?php } ?>     
+          <?php } ?>
   </tbody>
 </table>
 
@@ -166,7 +166,7 @@
         }
       };
     </script>
-            
+
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -175,7 +175,7 @@
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
-    
+
 </body>
 
 </html>
