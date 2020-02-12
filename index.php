@@ -21,8 +21,8 @@
             <center><h5><?php echo $_SESSION["First_Name"];?> <?php echo $_SESSION["Last_Name"];?></h5></center>
             <center><h6>สถานะ : <?php echo $_SESSION["status"];?></h6></center>
             <?php }else header("location:login.php"); ?>
-                
-                
+
+
             </div>
 
             <ul class="list-unstyled components">
@@ -65,7 +65,7 @@
       <div class="modal-footer">
       <a href="logout.php" class="btn btn-danger">ออกจากระบบ</a>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
-        
+
       </div>
     </div>
   </div>
@@ -77,7 +77,6 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
 
-                   
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
@@ -91,7 +90,7 @@
                     </div>
                 </div>
             </nav>
-            <a href="index.php" class="btn btn-outline-success mb-4 "><i class="fas fa-plus-circle"></i> เพิ่มข้อมูลการซ่อม </a>  
+            <a href="index.php" class="btn btn-outline-success mb-4 "><i class="fas fa-plus-circle"></i> เพิ่มข้อมูลการซ่อม </a>
 
             <div class="card ">
               <div class="card-header ui-sortable-handle" style="cursor: move;">
@@ -99,22 +98,22 @@
                   <i class="fas fa-chart-pie mr-1"></i>
                   สถิติ
                 </h3>
-                
+
               </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content p-0">
                   <!-- Morris chart - Sales -->
                   <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                      <canvas id="revenue-chart-canvas" height="375" style="height: 300px; display: block; width: 894px;" width="1117" class="chartjs-render-monitor"></canvas>                         
+                      <canvas id="revenue-chart-canvas" height="375" style="height: 300px; display: block; width: 894px;" width="1117" class="chartjs-render-monitor"></canvas>
                    </div>
                   <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;">
-                    <canvas id="sales-chart-canvas" height="0" style="height: 0px; display: block; width: 0px;" width="0" class="chartjs-render-monitor"></canvas>                         
-                  </div>  
+                    <canvas id="sales-chart-canvas" height="0" style="height: 0px; display: block; width: 0px;" width="0" class="chartjs-render-monitor"></canvas>
+                  </div>
                 </div>
               </div><!-- /.card-body -->
             </div>
-            
-            
+
+
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -126,4 +125,3 @@
 </body>
 
 </html>
-

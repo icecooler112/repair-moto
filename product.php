@@ -69,7 +69,6 @@
     </div>
   </div>
 </div>
-
         <!-- Page Content  -->
         <div id="content">
 
