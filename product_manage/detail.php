@@ -92,7 +92,10 @@
             </nav>
             <?php
                             $id = $_GET['id'];
-                             $sql = "SELECT * FROM product WHERE id = '" . $id . "' ";
+                             $sql = "SELECT product.id, product.pname, product.p_id, product.price, product.numproduct, product.detail, product.image, dealer.dl_nameshop, dealer.dl_phone, product.dl_insurance, product.dl_date
+                                     FROM `product`
+                                     INNER JOIN dealer
+                                     ON dealer.dl_id = product.dl_id WHERE id = '" . $id . "' ";
                             $result = $conn->query($sql);
                             while ($row = $result->fetch_assoc()) {
                                 $_SESSION['image'] = $row['image'];
@@ -112,6 +115,17 @@
                             <div class="report_name_th"><b>ราคาสินค้าต่อชิ้น </b> : <label><?php echo $row['price']; ?> <b>บาท</b></label></div>
                             <hr>
                             <div class="report_name_th"><b>รายละเอียดของสินค้า </b> : <label><?php echo $row['detail']; ?></label></div>
+                            <hr>
+                            <div class="card-header text-center">
+                                รายละเอียดร้านค้าที่จำหน่าย
+                            </div>
+                                <div class="card-body ">
+                                    <div class="form-group text-center">
+                                    <div class="report_name_th">
+                            <div class="report_name_th"><b>ชื่อร้านค้าที่จำหน่าย </b> : <label><?php echo $row['dl_nameshop']; ?></label></div>
+                            <div class="report_name_th"><b>เบอร์โทรศัพท์ร้านค้า </b> : <label><?php echo $row['dl_phone']; ?></label></div>
+                            <div class="report_name_th"><b>การรับประกันสินค้า</b> : <label><?php echo $row['dl_insurance']; ?></label></div>
+                            <div class="report_name_th"><b>วัน/เดือน/ปี ที่รับสินค้ามา</b> : <label><?php echo $row['dl_date']; ?></label></div>
             <div class="card-footer text-center">
                             <a class="btn btn-outline-danger" href="../product.php">ย้อนกลับ</a>
 

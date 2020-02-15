@@ -36,6 +36,9 @@
                 <li>
                     <a href="product.php"><i class="fas fa-box"></i> ข้อมูลสินค้า</a>
                 </li>
+                <li>
+                    <a href="dl_shop.php"><i class="fas fa-shopping-cart"></i> ข้อมูลผู้จำหน่ายสินค้า</a>
+                </li>
             </ul>
 
             <ul class="list-unstyled CTAs">

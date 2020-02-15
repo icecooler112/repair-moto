@@ -1,3 +1,4 @@
+<? session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +8,8 @@
     <title>เพิ่มข้อมูลสินค้า</title>
 </head>
 <body>
-
 <?php
-        require_once('../include/connect.php'); // ดึงไฟล์เชื่อมต่อ Database เข้ามาใช้งาน
+        include('../include/connect.php'); // ดึงไฟล์เชื่อมต่อ Database เข้ามาใช้งาน
         /**
          * ตรวจสอบเงื่อนไขที่ว่า ตัวแปร $_POST['submit'] ได้ถูกกำหนดขึ้นมาหรือไม่
          */
@@ -22,8 +22,8 @@
             if(move_uploaded_file($_FILES['fileUpload']['tmp_name'], '../upload/' .$new_name)){
 
 
-                $sql = "INSERT INTO `product` (`id`, `pname`, `p_id`, `price`, `numproduct`, `detail`, `image`)
-                        VALUES (NULL, '".$_POST['pname']."', '".$_POST['p_id']."', '".$_POST['price']."', '".$_POST['numproduct']."', '".$_POST['detail']."' , '". $new_name."');";
+                $sql = "INSERT INTO `product` (`id`, `pname`, `p_id`, `price`, `numproduct`, `detail`, `image`, `dl_insurance`,`dl_date`)
+                        VALUES (NULL, '".$_POST['pname']."', '".$_POST['p_id']."', '".$_POST['price']."', '".$_POST['numproduct']."', '".$_POST['detail']."' , '". $new_name."','".$_POST['dl_insurance']."','".$_POST['dl_date']."');";
                 $result = $conn->query($sql);
 
                 if($result){
@@ -37,7 +37,6 @@
             }
         }
     ?>
-
 
     <div class="container">
         <div class="row">
@@ -79,6 +78,18 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label for="dl_insurance" class="col-sm-3 col-form-label">การรับประกันสินค้า</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="dl_insurance" name="dl_insurance" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="dl_date" class="col-sm-3 col-form-label">วันที่รับสินค้ามา</label>
+                                <div class="col-sm-9">
+                                    <input type="date" class="form-control" id="dl_date" name="dl_date" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label for="fileUpload" class="col-sm-3 col-form-label">อัพโหลดรูปภาพ</label>
                                 <div class="col-sm-9">
                                     <input type="file" class="form-control" id="fileUpload" name="fileUpload" onchange="readURL(this)">
@@ -88,6 +99,7 @@
                                 <img id="imgUpload" class="figure-img img-fluid rounded" alt="">
                             </figure>
                         </div>
+
 
                         <div class="card-footer text-center">
                             <input type="submit" name="submit" class="btn btn-outline-primary" value="ยืนยัน">
@@ -104,7 +116,7 @@
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <script>
+    <!-- <script>
         /**
          * ประกาศ function readURL()
          * เพื่อทำการตรวจสอบว่า มีไฟล์ภาพที่กำหนดถูกอัพโหลดหรือไม่
@@ -121,7 +133,7 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
-    </script>
+    </script> -->
 
 
 </body>

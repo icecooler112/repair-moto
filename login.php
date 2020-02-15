@@ -15,7 +15,7 @@
         /**
          * ตรวจสอบเงื่อนไขที่ว่า ตัวแปร $_POST['submit'] ได้ถูกกำหนดขึ้นมาหรือไม่
          */
-        if (isset($_POST['submit'])) { 
+        if (isset($_POST['submit'])) {
             /**
              * กำหนดตัวแปรเพื่อมารับค่า
              */
@@ -33,29 +33,29 @@
              */
             if($result->num_rows > 0){
                 /**
-                 * แสดงข้อมูลของ user 
-                 * เก็บข้อมูลเข้าสู่ session เพื่อนำไปใช้งาน 
+                 * แสดงข้อมูลของ user
+                 * เก็บข้อมูลเข้าสู่ session เพื่อนำไปใช้งาน
                  */
-                
+
                 $row = $result->fetch_assoc();
                 $_SESSION['id'] = $row['id'];
                 $_SESSION['First_Name'] = $row['First_Name'];
                 $_SESSION['Last_Name'] = $row['Last_Name'];
                 $_SESSION['status'] = $row['status'];
-               
+
                 header('location:index.php');
             }else{
         echo '<div class="alert alert-warning alert-dismissible fade show test-center" role="alert">
         <strong>ล้มเหลว!</strong>ชื่อผู้ใช้หรือรหัสผ่านของคุณไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง.
       </div>';
-            } 
+            }
         }
     ?>
     <div class="container">
         <div class="row">
             <div class="col-md-6 mx-auto mt-5">
                 <div class="card">
-                    <form action="" method="POST">           
+                    <form action="" method="POST">
                         <div class="card-header text-center">
                         <h3><a><b>Admin</b>Login</a></h3>
                         </div>
@@ -70,7 +70,7 @@
                                 <label for="password" class="col-sm-3 col-form-label">รหัสผ่าน</label>
                                 <div class="col-sm-9">
                                     <input type="password" class="form-control" id="password" name="password" required>
-                                </div>    
+                                </div>
                             </div>
                         </div>
                         <div class="card-footer text-center col-12 p-3">
@@ -82,7 +82,7 @@
         </div>
     </div>
 
-    <!-- ติดตั้งการใช้งาน Javascript ต่างๆ -->    
+    <!-- ติดตั้งการใช้งาน Javascript ต่างๆ -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
