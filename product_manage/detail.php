@@ -125,7 +125,7 @@
                             <div class="report_name_th"><b>ชื่อร้านค้าที่จำหน่าย </b> : <label><?php echo $row['dl_nameshop']; ?></label></div>
                             <div class="report_name_th"><b>เบอร์โทรศัพท์ร้านค้า </b> : <label><?php echo $row['dl_phone']; ?></label></div>
                             <div class="report_name_th"><b>การรับประกันสินค้า</b> : <label><?php echo $row['dl_insurance']; ?></label></div>
-                            <div class="report_name_th"><b>วัน/เดือน/ปี ที่รับสินค้ามา</b> : <label><?php echo $row['dl_date']; ?></label></div>
+                            <div class="report_name_th"><b>วันที่รับสินค้ามา</b> : <label><?php echo $row['dl_date']; ?></label></div>
             <div class="card-footer text-center">
                             <a class="btn btn-outline-danger" href="../product.php">ย้อนกลับ</a>
 

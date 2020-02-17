@@ -32,7 +32,10 @@
                   </div>';
                     header('Refresh:1; url=../product.php');
                 }else{
-                    echo '<script> alert("ไม่สามารถเพิ่มข้อมูลสินค้านี้ได้ Sorry!")</script>';
+                  echo '<div class="alert alert-danger alert-dismissible fade show test-center" role="alert">
+                  <strong>ล้มเหลว!</strong>การเพิ่มข้อมูลสินค้าไม่สำเร็จ.
+                </div>';
+
                 }
             }
         }

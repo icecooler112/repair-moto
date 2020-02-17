@@ -26,7 +26,7 @@
 
  <ul class="list-unstyled components">
                 <li>
-                    <a href="index.php"><i class="fas fa-chart-pie mr-1"></i> รายงาน</a>
+                    <a href="index.php"><i class="fas fa-toolbox mr-1"></i>เพิ่มข้อมูลการซ่อม</a>
                 </li>
                 <li  >
                     <a href="user_list.php"><i class="fas fa-users"></i> ข้อมูลลูกค้า</a>
@@ -39,6 +39,9 @@
                 </li>
                 <li>
                     <a href="dl_shop.php"><i class="fas fa-shopping-cart"></i> ข้อมูลผู้จำหน่ายสินค้า</a>
+                </li>
+                <li>
+                    <a href="show.php"><i class="fas fa-chart-pie mr-1"></i> รายงาน</a>
                 </li>
             </ul>
 
