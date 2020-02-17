@@ -99,54 +99,74 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-md-10 mx-auto">
+                    <div class="col-md-9 mx-auto">
                         <div class="card">
-                            <form action="" method="POST" enctype="multipart/form-data">
+                            <form class="was-validated" action="" method="POST" enctype="multipart/form-data">
                                 <div class="card-header text-center">
                                     กรอกข้อมูลการซ่อม
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group row">
-                                        <label for="pname" class="col-sm-3 col-form-label">ชื่อ - สกุล</label>
+                                        <label for="pname" class="col-sm-2 col-form-label">ชื่อ-สกุล</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="pname" name="pname" required>
+                                            <input type="text" class="form-control" id="pname" name="pname" value="" required>
+                                            <div class="invalid-feedback">
+                                                กรุณากรอกชื่อ-สกุล
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="p_id" class="col-sm-3 col-form-label">รหัสสินค้า</label>
+                                        <label for="p_id" class="col-sm-2 col-form-label">รหัสสินค้า</label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="p_id" name="p_id" required>
+                                            <div class="invalid-feedback">
+                                                กรุณากรอกชื่อ นามสกุล
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="price" class="col-sm-3 col-form-label">ราคา</label>
+                                        <label for="price" class="col-sm-2 col-form-label">ราคา</label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="price" name="price" required>
+                                            <div class="invalid-feedback">
+                                                กรุณากรอกชื่อ นามสกุล
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="numproduct" class="col-sm-3 col-form-label">จำนวนสินค้า</label>
+                                        <label for="numproduct" class="col-sm-2 col-form-label">จำนวนสินค้า</label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="numproduct" name="numproduct" required>
+                                            <div class="invalid-feedback">
+                                                กรุณากรอกชื่อ นามสกุล
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="detail" class="col-sm-3 col-form-label" >Detail</label>
+                                        <label for="detail" class="col-sm-2 col-form-label" >Detail</label>
                                         <div class="col-sm-9">
                                             <textarea type="text" class="form-control" id="detail" name="detail" rows="4" required></textarea>
+                                            <div class="invalid-feedback">
+                                                กรุณากรอกชื่อ นามสกุล
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="dl_insurance" class="col-sm-3 col-form-label">การรับประกันสินค้า</label>
+                                        <label for="dl_insurance" class="col-sm-2 col-form-label">การรับประกันสินค้า</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="dl_insurance" name="dl_insurance" required>
+                                            <input type="text" class="form-control" id="dl_insurance" value="" name="dl_insurance">
+
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="dl_date" class="col-sm-3 col-form-label">วันที่รับสินค้ามา</label>
+                                        <label for="dl_date" class="col-sm-2 col-form-label">วันที่รับสินค้ามา</label>
                                         <div class="col-sm-9">
                                             <input type="date" class="form-control" id="dl_date" name="dl_date" required>
+                                            <div class="invalid-feedback">
+                                                กรุณากรอก วันที่รับสินค้า
+                                            </div>
                                         </div>
+
                                     </div>
                                     <div class="card-footer text-center">
                                         <input type="submit" name="submit" class="btn btn-outline-primary" value="ยืนยันการทำรายการ">

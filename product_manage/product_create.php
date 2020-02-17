@@ -45,7 +45,7 @@
         <div class="row">
             <div class="col-md-8 mx-auto mt-5">
                 <div class="card">
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form class="was-validated" action="" method="POST" enctype="multipart/form-data">
                         <div class="card-header text-center">
                             กรอกข้อมูลสินค้า
                         </div>
@@ -54,48 +54,69 @@
                                 <label for="pname" class="col-sm-3 col-form-label">ชื่อสินค้า</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="pname" name="pname" required>
+                                    <div class="invalid-feedback">
+                                        กรุณากรอกชื่อสินค้า
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="p_id" class="col-sm-3 col-form-label">รหัสสินค้า</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="p_id" name="p_id" required>
+                                    <div class="invalid-feedback">
+                                        กรุณากรอกรหัสสินค้า
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="price" class="col-sm-3 col-form-label">ราคา</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="price" name="price" required>
+                                    <div class="invalid-feedback">
+                                        กรุณากรอกราคาสินค้า
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="numproduct" class="col-sm-3 col-form-label">จำนวนสินค้า</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="numproduct" name="numproduct" required>
+                                    <div class="invalid-feedback">
+                                        กรุณากรอกจำนวนสินค้าที่มี
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="detail" class="col-sm-3 col-form-label" >Detail</label>
                                 <div class="col-sm-9">
                                     <textarea type="text" class="form-control" id="detail" name="detail" rows="4" required></textarea>
+                                    <div class="invalid-feedback">
+                                        กรุณากรอกรายละเอียดสินค้า
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="dl_insurance" class="col-sm-3 col-form-label">การรับประกันสินค้า</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="dl_insurance" name="dl_insurance" required>
+                                    <input type="text" class="form-control" id="dl_insurance" name="dl_insurance">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="dl_date" class="col-sm-3 col-form-label">วันที่รับสินค้ามา</label>
                                 <div class="col-sm-9">
                                     <input type="date" class="form-control" id="dl_date" name="dl_date" required>
+                                    <div class="invalid-feedback">
+                                        กรุณาเลือกวันที่รับสินค้ามา
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="fileUpload" class="col-sm-3 col-form-label">อัพโหลดรูปภาพ</label>
                                 <div class="col-sm-9">
                                     <input type="file" class="form-control" id="fileUpload" name="fileUpload" onchange="readURL(this)">
+                                    <div class="invalid-feedback">
+                                        กรุณาใส่รูปภาพ
+                                    </div>
                                 </div>
                             </div>
                             <figure class="figure text-center d-none">
@@ -108,6 +129,7 @@
                             <input type="submit" name="submit" class="btn btn-outline-primary" value="ยืนยัน">
                             <a class="btn btn-outline-danger" href="../product.php">ย้อนกลับ</a>
                         </div>
+
                     </form>
                 </div>
             </div>

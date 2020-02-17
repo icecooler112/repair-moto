@@ -25,11 +25,11 @@
                     echo '<div class="alert alert-success alert-dismissible fade show test-center" role="alert">
                     <strong>สำเร็จ!</strong>ทำการเพิ่มข้อมูลลูกค้าเรียบร้อย.
                   </div>';
-                    header('Refresh:1; url=../user_list.php');
+                    header('Refresh:1; url=../dl_shop.php');
                 }else{
                     echo '<div class="alert alert-danger alert-dismissible fade show test-center" role="alert">
                     <strong>ล้มเหลว!</strong>ไม่สามารถทำการกรอกข้อมูลลูกค้าได้ กรุณาลองใหม่อีกครั้ง.';
-                    header('Refresh:1; url=user_create.php');
+                    header('Refresh:1; url=dl_create.php');
                 }
             }
 

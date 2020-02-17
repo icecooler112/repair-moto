@@ -96,7 +96,6 @@
                     </div>
                 </div>
             </nav>
-            <a href="index.php" class="btn btn-outline-success mb-4 "><i class="fas fa-plus-circle"></i> เพิ่มข้อมูลการซ่อม </a>
 
             <div class="card ">
               <div class="card-header ui-sortable-handle" style="cursor: move;">

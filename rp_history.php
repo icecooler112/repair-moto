@@ -102,7 +102,6 @@
             <button class="btn btn-outline-primary ml-3" type="submit"><i class="fas fa-search"></i> Search </button> <button class="btn btn-outline-danger ml-3" action="product.php" type="submit"><i class="fas fa-eraser"></i> Reset</button>
 
               </form>
-            <a href="#" class="btn btn-outline-success mb-2 float-right"><i class="fas fa-plus-circle"></i> เพิ่มข้อมูลการซ่อม</a>
   <table class="table table-bordered text-center">
   <thead>
     <tr>
@@ -149,9 +148,6 @@
 
   </tbody>
 </table>
-<div class="container-fluid">
-<a href="#" class="btn btn-outline-success col-12"><i class="fas fa-plus-circle"></i> เพิ่มข้อมูลการซ่อม </a>
-</div>
 
 </div>
     <!-- jQuery CDN - Slim version (=without AJAX) -->

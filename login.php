@@ -70,6 +70,7 @@
                                 <label for="password" class="col-sm-3 col-form-label">รหัสผ่าน</label>
                                 <div class="col-sm-9">
                                     <input type="password" class="form-control" id="password" name="password" required>
+
                                 </div>
                             </div>
                         </div>
