@@ -14,12 +14,12 @@
          * ตรวจสอบเงื่อนไขที่ว่า ตัวแปร $_POST['submit'] ได้ถูกกำหนดขึ้นมาหรือไม่
          */
         if(isset($_POST['submit'])){
-            $temp = explode('.',$_FILES['fileUpload']['name']);
+            $temp = explode('.',$_FILES['image']['name']);
             $new_name = round(microtime(true)) . '.' . end($temp);
             /**
              * ตรวจสอบเงื่อนไขที่ว่า สามารถย้ายไฟล์รูปภาพเข้าสู่ storage ของเราได้หรือไม่
              */
-            if(move_uploaded_file($_FILES['fileUpload']['tmp_name'], '../upload/' .$new_name)){
+            if(move_uploaded_file($_FILES['image']['tmp_name'], '../upload/' .$new_name)){
 
 
                 $sql = "INSERT INTO `product` (`id`, `pname`, `p_id`, `price`, `numproduct`, `detail`, `image`, `dl_insurance`,`dl_date`)
@@ -98,7 +98,10 @@
                             <div class="form-group row">
                                 <label for="dl_insurance" class="col-sm-3 col-form-label">การรับประกันสินค้า</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="dl_insurance" name="dl_insurance">
+                                    <input type="text" class="form-control" id="dl_insurance" name="dl_insurance" required>
+                                    <div class="invalid-feedback">
+                                        กรุณากรอกการรัการรับประกันสินค้า เช่น 1ปี หรือ 1เดือน (หากไม่มีการรับประกันให้ใส่ 0 )
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -106,23 +109,22 @@
                                 <div class="col-sm-9">
                                     <input type="date" class="form-control" id="dl_date" name="dl_date" required>
                                     <div class="invalid-feedback">
-                                        กรุณาเลือกวันที่รับสินค้ามา
+                                        กรุณาเลือกวันที่รับสินค้ามา (เดือน / วัน / ปี)
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="fileUpload" class="col-sm-3 col-form-label">อัพโหลดรูปภาพ</label>
+                                <label for="image" class="col-sm-3 col-form-label">อัพโหลดรูปภาพ</label>
                                 <div class="col-sm-9">
-                                    <input type="file" class="form-control" id="fileUpload" name="fileUpload" onchange="readURL(this)">
+                                    <input type="file" class="form-control" id="image" name="image" required>
                                     <div class="invalid-feedback">
                                         กรุณาใส่รูปภาพ
                                     </div>
                                 </div>
+
                             </div>
-                            <figure class="figure text-center d-none">
-                                <img id="imgUpload" class="figure-img img-fluid rounded" alt="">
-                            </figure>
-                        </div>
+
+
 
 
                         <div class="card-footer text-center">
@@ -141,24 +143,6 @@
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <!-- <script>
-        /**
-         * ประกาศ function readURL()
-         * เพื่อทำการตรวจสอบว่า มีไฟล์ภาพที่กำหนดถูกอัพโหลดหรือไม่
-         * ถ้ามีไฟล์ภาพที่กำหนดถูกอัพโหลดอยู่ ให้แสดงไฟล์ภาพนั้นผ่าน elements ที่มี id="imgUpload"
-         */
-        function readURL(input){
-            if(input.files[0]){
-                var reader = new FileReader();
-                $('.figure').addClass('d-block');
-                reader.onload = function (e) {
-                    console.log(e.target.result)
-                    $('#imgUpload').attr('src',e.target.result).width(240);
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-    </script> -->
 
 
 </body>

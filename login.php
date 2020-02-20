@@ -74,7 +74,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer text-center col-12 p-3">
+                        <div class="card-footer text-center col-12">
                             <input type="submit" name="submit" class="btn btn-primary" value="เข้าสู่ระบบ">
                         </div>
                     </form>

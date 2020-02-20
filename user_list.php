@@ -31,6 +31,9 @@
                     <a href="user_list.php"><i class="fas fa-users"></i> ข้อมูลลูกค้า</a>
                 </li>
                 <li>
+                    <a href="staff.php"><i class="fas fa-users"></i> ข้อมูลพนักงาน</a>
+                </li>
+                <li>
                     <a href="rp_history.php"><i class="fas fa-bell"></i> ประวัติการซ่อม</a>
                 </li>
                 <li>

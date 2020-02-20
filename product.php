@@ -32,6 +32,9 @@
                     <a href="user_list.php"><i class="fas fa-users"></i> ข้อมูลลูกค้า</a>
                 </li>
                 <li>
+                    <a href="staff.php"><i class="fas fa-users"></i> ข้อมูลพนักงาน</a>
+                </li>
+                <li>
                     <a href="rp_history.php"><i class="fas fa-bell"></i> ประวัติการซ่อม</a>
                 </li>
                 <li class="active">
@@ -107,16 +110,15 @@
 
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">รูปภาพ</th>
-      <th scope="col">รหัสสินค้า</th>
-      <th scope="col">ชื่อสินค้า</th>
-      <th scope="col">ราคาต่อชิ้น</th>
-      <th scope="col">จำนวนสินค้า</th>
-      <th scope="col">ชื่อร้านค้าที่จำหน่าย</th>
-      <th scope="col">ดูเพิ่ม</th>
-      <th scope="col">แก้ไข</th>
-      <th scope="col">ลบ</th>
+      <th width="50">#</th>
+      <th width="300">รูปภาพ</th>
+      <th width="300">รหัสสินค้า</th>
+      <th width="1600">ชื่อสินค้า</th>
+      <th width="600">ราคาต่อชิ้น</th>
+      <th width="600">จำนวนสินค้า</th>
+      <th width="600">ดูเพิ่ม</th>
+      <th width="600">แก้ไข</th>
+      <th width="600">ลบ</th>
     </tr>
   </thead>
   <tbody>
@@ -145,9 +147,8 @@
               <td><?php echo $row['pname']; ?></td>
               <td><?php echo $row['price']; ?> บาท</td>
               <td><?php echo $row['numproduct']; ?></td>
-              <td><?php echo $row['dl_nameshop']; ?></td>
               <td>
-                <a href="product_manage/detail.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-primary ">
+                <a href="product_manage/detail.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-primary  ">
                   <i class="fas fa-eye"></i> ดูเพิ่ม
                 </a>
               </td>
