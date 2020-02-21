@@ -13,7 +13,7 @@
     <title>User List</title>
 
 <body>
-  
+
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
@@ -44,7 +44,7 @@
                     <a href="dl_shop.php"><i class="fas fa-shopping-cart"></i> ข้อมูลผู้จำหน่ายสินค้า</a>
                 </li>
                 <li>
-                    <a href="show.php"><i class="fas fa-chart-pie mr-1"></i> รายงาน</a>
+                    <a href="show.php"><i class="fas fa-chart-line"></i> รายงาน</a>
                 </li>
             </ul>
 

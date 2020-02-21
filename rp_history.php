@@ -33,7 +33,7 @@
                     <a href="user_list.php"><i class="fas fa-users"></i> ข้อมูลลูกค้า</a>
                 </li>
                 <li>
-                    <a href="staff.php"><i class="fas fa-users"></i> ข้อมูลพนักงาน</a>
+                    <a href="staff.php"><i class="fas fa-user-cog"></i> ข้อมูลพนักงาน</a>
                 </li>
                 <li  class="active">
                     <a href="rp_history.php"><i class="fas fa-bell"></i> ประวัติการซ่อม</a>
@@ -45,7 +45,7 @@
                     <a href="dl_shop.php"><i class="fas fa-shopping-cart"></i> ข้อมูลผู้จำหน่ายสินค้า</a>
                 </li>
                 <li >
-                    <a href="show.php"><i class="fas fa-chart-pie mr-1"></i> รายงาน</a>
+                    <a href="show.php"><i class="fas fa-chart-line"></i> รายงาน</a>
                 </li>
             </ul>
 
@@ -110,7 +110,8 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">ชื่อ</th>
-      <th scope="col">ประวัติการซ่อม</th>
+        <th scope="col">เลขทะเบียนรถ</th>
+          <th scope="col">วันและเวลาที่ซ่อม</th>
       <th scope="col">ดูเพิ่ม</th>
       <th scope="col">แก้ไข</th>
       <th scope="col">ลบ</th>
@@ -121,7 +122,10 @@
     <?php
              $search=isset($_GET['search']) ? $_GET['search']:'';
 
-             $sql = "SELECT * FROM user WHERE fullname LIKE '%$search%'";
+             $sql = "SELECT user.user_id,user.fullname,history.h_id,history.user_id,history.bike_id,history.datetime,history.h_price
+             FROM user
+             INNER JOIN history
+             ON user.user_id = history.user_id WHERE fullname LIKE '%$search%'";
              $result = $conn->query($sql);
              $num = 0;
              while ($row = $result->fetch_assoc()) {
@@ -130,8 +134,10 @@
             <tr>
               <td><?php echo $num; ?></td>
               <td><?php echo $row['fullname']; ?></td>
-              <td></td>
-              <td><a href="../create_subject/update_subject.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-primary ">
+              <td><?php echo $row['bike_id']; ?></td>
+              <td><?php echo $row['datetime']; ?></td>
+              <td>
+                <a href="../create_subject/update_subject.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-primary ">
                   <i class="fas fa-eye"></i> ดูเพิ่ม
                 </a>
                 </td>
@@ -141,8 +147,8 @@
                 </a>
               </td>
               <td>
-                <?php if ($row['id']) { ?>
-                  <a href="#" onclick="deleteItem(<?php echo $row['id']; ?>);" class="btn btn-sm btn-outline-danger">
+                <?php if ($row['h_id']) { ?>
+                  <a href="#" onclick="deleteItem(<?php echo $row['h_id']; ?>);" class="btn btn-sm btn-outline-danger">
                     <i class="fas fa-trash-alt"></i> ลบ
                   </a>
                 <?php } ?>
@@ -152,6 +158,13 @@
   </tbody>
 </table>
 
+<script>
+      function deleteItem(id) {
+        if (confirm('คุณต้องการลบข้อมูลใช่หรือไม่') == true) {
+          window.location = `user_manage/delete_user.php?id=${id}`;
+        }
+      };
+    </script>
 </div>
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

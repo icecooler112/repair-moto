@@ -1,5 +1,4 @@
 <?php session_start(); ?>
-<?php include_once('include/connect.php'); ?>
 <!DOCTYPE html>
 
 <html>
@@ -13,6 +12,31 @@
 </head>
 
 <body>
+  <?php
+  require_once('include/connect.php'); // ดึงไฟล์เชื่อมต่อ Database เข้ามาใช้งาน
+
+      if(isset($_POST['submit'])){
+
+              $sql = "INSERT INTO `history` (`user_id`, `bike_id`, `datetime`, `h_price`)
+                      VALUES ('".$_POST['user_id']."', '".$_POST['bike_id']."', '".$_POST['datetime']."', '".$_POST['h_price']."');";
+              $result = $conn->query($sql);
+              /**
+               * ตรวจสอบเงื่อนไขที่ว่าการประมวณผลคำสั่งนี่สำเร็จหรือไม่
+               */
+              if($result){
+                  echo '<div class="alert alert-success alert-dismissible fade show test-center" role="alert">
+                  <strong>สำเร็จ!</strong>ทำการเพิ่มข้อมูลลูกค้าเรียบร้อย.
+                </div>';
+                  header('Refresh:1; url=index.php');
+              }else{
+                  echo '<div class="alert alert-danger alert-dismissible fade show test-center" role="alert">
+                  <strong>ล้มเหลว!</strong>ไม่สามารถทำการกรอกข้อมูลลูกค้าได้ กรุณาลองใหม่อีกครั้ง.';
+                  header('Refresh:1; url=index.php');
+              }
+          }
+
+  ?>
+
     <div class="wrapper">
         <!-- Sidebar  -->
         <nav id="sidebar">
@@ -33,7 +57,7 @@
                     <a href="user_list.php"><i class="fas fa-users"></i> ข้อมูลลูกค้า</a>
                 </li>
                 <li>
-                    <a href="staff.php"><i class="fas fa-users"></i> ข้อมูลพนักงาน</a>
+                    <a href="staff.php"><i class="fas fa-user-cog"></i> ข้อมูลพนักงาน</a>
                 </li>
                 <li>
                     <a href="rp_history.php"><i class="fas fa-bell"></i> ประวัติการซ่อม</a>
@@ -45,7 +69,7 @@
                     <a href="dl_shop.php"><i class="fas fa-shopping-cart"></i> ข้อมูลผู้จำหน่ายสินค้า</a>
                 </li>
                 <li>
-                    <a href="show.php" ><i class="fas fa-chart-pie mr-1"></i> รายงาน</a>
+                    <a href="show.php" ><i class="fas fa-chart-line"></i> รายงาน</a>
                 </li>
             </ul>
 
@@ -102,84 +126,67 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9 mx-auto">
+                    <div class="col-md-8 mx-auto mt-5">
                         <div class="card">
                             <form class="was-validated" action="" method="POST" enctype="multipart/form-data">
                                 <div class="card-header text-center">
                                     กรอกข้อมูลการซ่อม
                                 </div>
-                                <div class="card-body">
-                                    <div class="form-group row">
-                                        <label for="pname" class="col-sm-2 col-form-label">ชื่อ-สกุล</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="pname" name="pname" value="" required>
-                                            <div class="invalid-feedback">
-                                                กรุณากรอกชื่อ-สกุล
-                                            </div>
+                                  <div class="card-body">
+                                <div class="form-group row">
+                                    <label for="dl_id" class="col-sm-3 col-form-label">เลือกชื่อลูกค้า</label>
+                                    <div class="col-sm-9">
+                                      <select class="form-control" id = "user_id" name="user_id" required>
+                                              <option value="" disabled selected>----- กรุณาเลือก -----</option>
+                                                <?php $sql = "SELECT * FROM user";
+                                                $result = $conn->query($sql);
+                                                while ($row = $result->fetch_assoc()) {
+                                                        ?>
+                                                        <option value="<?php echo $row['user_id']; ?>"><?php echo $row["fullname"]; ?></option>
+                                                          <?php } ?>
+                                                          </select>
+                                        <div class="invalid-feedback">
+                                            กรุณาเลือกชื่อลูกค้า
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="p_id" class="col-sm-2 col-form-label">รหัสสินค้า</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="p_id" name="p_id" required>
-                                            <div class="invalid-feedback">
-                                                กรุณากรอกชื่อ นามสกุล
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="price" class="col-sm-2 col-form-label">ราคา</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="price" name="price" required>
-                                            <div class="invalid-feedback">
-                                                กรุณากรอกชื่อ นามสกุล
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="numproduct" class="col-sm-2 col-form-label">จำนวนสินค้า</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="numproduct" name="numproduct" required>
-                                            <div class="invalid-feedback">
-                                                กรุณากรอกชื่อ นามสกุล
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="detail" class="col-sm-2 col-form-label" >Detail</label>
-                                        <div class="col-sm-9">
-                                            <textarea type="text" class="form-control" id="detail" name="detail" rows="4" required></textarea>
-                                            <div class="invalid-feedback">
-                                                กรุณากรอกชื่อ นามสกุล
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="dl_insurance" class="col-sm-2 col-form-label">การรับประกันสินค้า</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="dl_insurance" value="" name="dl_insurance" required>
+                                </div>
 
+                                    <div class="form-group row">
+                                        <label for="bike_id" class="col-sm-3 col-form-label">เลขทะเบียนรถ</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="bike_id" name="bike_id" required>
+                                            <div class="invalid-feedback">
+                                                กรุณากรอกเลขทะเบียน (ตัวอย่าง : กข 123 , 1กข 2222)
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="dl_date" class="col-sm-2 col-form-label">วันที่รับสินค้ามา</label>
+                                        <label for="datetime" class="col-sm-3 col-form-label">วันที่รับสินค้ามา</label>
                                         <div class="col-sm-9">
-                                            <input type="datetime" class="form-control" id="dl_date" name="dl_date" required>
+                                            <input type="datetime" class="form-control" id="datetime" value="<?php date_default_timezone_set('asia/bangkok'); echo date('d-m-y h:i:s');?>" name="datetime" required>
                                             <div class="invalid-feedback">
-                                                กรุณากรอก วันที่รับสินค้า
+                                                กรุณาเลือกวันที่รับสินค้ามา (เดือน / วัน / ปี)
                                             </div>
                                         </div>
-
-
                                     </div>
-                                    <div class="card-footer text-center">
-                                        <input type="submit" name="submit" class="btn btn-outline-primary" value="ยืนยันการทำรายการ">
+                                    <div class="form-group row">
+                                        <label for="h_price" class="col-sm-3 col-form-label">ราคารวม</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="h_price" name="h_price" required>
+                                            <div class="invalid-feedback">
+                                                กรุณากรอกราคารวม
+                                            </div>
+                                        </div>
                                     </div>
+                                <div class="card-footer text-center">
+                                    <input type="submit" name="submit" class="btn btn-outline-primary" value="ยืนยัน">
+                                </div>
                                 </form>
-                            </div>
                         </div>
                     </div>
-
+                </div>
+            </div>
+            </div>
 
                     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
                     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

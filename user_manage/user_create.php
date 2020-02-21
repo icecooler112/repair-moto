@@ -15,7 +15,7 @@
          */
         if(isset($_POST['submit'])){
 
-                $sql = "INSERT INTO `user` (`id`, `fullname`, `idcard`, `phone`, `email`)
+                $sql = "INSERT INTO `user` (`user_id`, `fullname`, `idcard`, `phone`, `email`)
                         VALUES (NULL, '".$_POST['fullname']."', '".$_POST['idcard']."', '".$_POST['phone']."', '".$_POST['email']."');";
                 $result = $conn->query($sql);
                 /**

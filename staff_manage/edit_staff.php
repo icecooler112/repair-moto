@@ -2,7 +2,7 @@
 <?php
 
 $id = $_GET['id'];
-$sql = "SELECT  `user_id`, `fullname`, `idcard`, `phone`, `email` FROM `user`  WHERE user_id = '" . $id . "' ";
+$sql = "SELECT  `staff_id`, `staff_name`, `staff_address`, `staff_email`, `staff_phone` FROM `staff`  WHERE staff_id = '" . $id . "' ";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 ?>
@@ -17,23 +17,23 @@ $row = $result->fetch_assoc();
 </head>
 <?php
 if(isset($_POST['submit'])){
-$sql = "UPDATE `user`
-        SET `fullname` = '".$_POST['fullname']."',
-            `idcard` = '".$_POST['idcard']."',
-            `phone` = '".$_POST['phone']."',
-            `email` = '".$_POST['email']."'
-         WHERE user.`id` = '".$_POST['id']."';";
+$sql = "UPDATE `staff`
+        SET `staff_name` = '".$_POST['staff_name']."',
+            `staff_address` = '".$_POST['staff_address']."',
+            `staff_email` = '".$_POST['staff_email']."',
+            `staff_phone` = '".$_POST['staff_phone']."'
+         WHERE staff.`staff_id` = '".$_POST['staff_id']."';";
 
 
 $result = $conn->query($sql);
 if($result){
-  echo '<script> alert("สำเร็จ! แก้ไขข้อมูลลูกค้าเรียบร้อย")</script>';
+     echo '<script> alert("สำเร็จ! แก้ไขข้อมูลพนักงานเรียบร้อย")</script>';
 
- header('Refresh:0; url=../user_list.php');
+    header('Refresh:0; url=../staff.php');
 }else{
- echo '<script> alert("ล้มเหลว! แก้ไขข้อมูลลูกค้าไม่สำเร็จ Sorry!")</script>';
+    echo '<script> alert("ล้มเหลว! แก้ไขข้อมูลพนักงานไม่สำเร็จ Sorry!")</script>';
 
- header('Refresh:0; url=user_list.php');
+    header('Refresh:0; url=staff.php');
 }
 
 }
@@ -50,7 +50,7 @@ if($result){
                             กรอกข้อมูลสมัครสมาชิก
                         </div>
                         <div class="card-body">
-                                <input type="text" class="form-control" id="user_id" name="user_id" value="<?php echo $row['id']; ?>" hidden>
+                                <input type="text" class="form-control" id="id" name="id" value="<?php echo $row['id']; ?>" hidden>
                         </div>
 
                         <div class="card-body">

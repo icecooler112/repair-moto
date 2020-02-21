@@ -32,7 +32,7 @@
                     <a href="user_list.php"><i class="fas fa-users"></i> ข้อมูลลูกค้า</a>
                 </li>
                 <li>
-                    <a href="staff.php"><i class="fas fa-users"></i> ข้อมูลพนักงาน</a>
+                    <a href="staff.php"><i class="fas fa-user-cog"></i> ข้อมูลพนักงาน</a>
                 </li>
                 <li>
                     <a href="rp_history.php"><i class="fas fa-bell"></i> ประวัติการซ่อม</a>
@@ -44,7 +44,7 @@
                     <a href="dl_shop.php"><i class="fas fa-shopping-cart"></i> ข้อมูลผู้จำหน่ายสินค้า</a>
                 </li>
                 <li>
-                    <a href="show.php"><i class="fas fa-chart-pie mr-1"></i> รายงาน</a>
+                    <a href="show.php"><i class="fas fa-chart-line"></i> รายงาน</a>
                 </li>
             </ul>
 

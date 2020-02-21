@@ -31,7 +31,7 @@
                     <a href="user_list.php"><i class="fas fa-users"></i> ข้อมูลลูกค้า</a>
                 </li>
                 <li>
-                    <a href="staff.php"><i class="fas fa-users"></i> ข้อมูลพนักงาน</a>
+                    <a href="staff.php"><i class="fas fa-user-cog"></i> ข้อมูลพนักงาน</a>
                 </li>
                 <li>
                     <a href="rp_history.php"><i class="fas fa-bell"></i> ประวัติการซ่อม</a>
@@ -43,7 +43,7 @@
                     <a href="dl_shop.php"><i class="fas fa-shopping-cart"></i> ข้อมูลผู้จำหน่ายสินค้า</a>
                 </li>
                 <li>
-                    <a href="show.php"><i class="fas fa-chart-pie mr-1"></i> รายงาน</a>
+                    <a href="show.php"><i class="fas fa-chart-line"></i> รายงาน</a>
                 </li>
             </ul>
 
@@ -136,13 +136,13 @@
               <td><?php echo $row['phone']; ?></td>
               <td><?php echo $row['email']; ?></td>
               <td>
-                <a href="user_manage/edit_user.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-warning ">
+                <a href="user_manage/edit_user.php?id=<?php echo $row['user_id']; ?>" class="btn btn-sm btn-outline-warning ">
                   <i class="fas fa-edit"></i> แก้ไข
                 </a>
               </td>
               <td>
-                <?php if ($row['id']) { ?>
-                  <a href="#" onclick="deleteItem(<?php echo $row['id']; ?>);" class="btn btn-sm btn-outline-danger">
+                <?php if ($row['user_id']) { ?>
+                  <a href="#" onclick="deleteItem(<?php echo $row['user_id']; ?>);" class="btn btn-sm btn-outline-danger">
                     <i class="fas fa-trash-alt"></i> ลบ
                   </a>
                 <?php } ?>

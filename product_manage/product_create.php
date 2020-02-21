@@ -22,10 +22,17 @@
             if(move_uploaded_file($_FILES['image']['tmp_name'], '../upload/' .$new_name)){
 
 
-                $sql = "INSERT INTO `product` (`id`, `pname`, `p_id`, `price`, `numproduct`, `detail`, `image`, `dl_insurance`,`dl_date`)
-                        VALUES (NULL, '".$_POST['pname']."', '".$_POST['p_id']."', '".$_POST['price']."', '".$_POST['numproduct']."', '".$_POST['detail']."' , '". $new_name."','".$_POST['dl_insurance']."','".$_POST['dl_date']."');";
+                $sql = "INSERT INTO `product` (`id`, `pname`, `p_id`, `price`, `numproduct`, `detail`, `image`, `dl_id`, `dl_insurance`,`dl_date`)
+                        VALUES (NULL, '".$_POST['pname']."',
+                           '".$_POST['p_id']."',
+                            '".$_POST['price']."',
+                             '".$_POST['numproduct']."',
+                              '".$_POST['detail']."' ,
+                               '". $new_name."',
+                               '".$_POST['dl_id']."' ,
+                               '".$_POST['dl_insurance']."',
+                               '".$_POST['dl_date']."');";
                 $result = $conn->query($sql);
-
                 if($result){
                     echo '<div class="alert alert-success alert-dismissible fade show test-center" role="alert">
                     <strong>สำเร็จ!</strong>ทำการเพิ่มข้อมูลสินค้าเรียบร้อย.
@@ -107,7 +114,7 @@
                             <div class="form-group row">
                                 <label for="dl_date" class="col-sm-3 col-form-label">วันที่รับสินค้ามา</label>
                                 <div class="col-sm-9">
-                                    <input type="date" class="form-control" id="dl_date" name="dl_date" required>
+                                    <input type="datetime" class="form-control" id="dl_date" name="dl_date" required>
                                     <div class="invalid-feedback">
                                         กรุณาเลือกวันที่รับสินค้ามา (เดือน / วัน / ปี)
                                     </div>
@@ -121,18 +128,29 @@
                                         กรุณาใส่รูปภาพ
                                     </div>
                                 </div>
-
                             </div>
-
-
-
-
+                            <div class="form-group row">
+                                <label for="dl_id" class="col-sm-3 col-form-label">เลือกชื่อร้านผู้จำหน่าย</label>
+                                <div class="col-sm-9">
+                                  <select class="form-control" id = "dl_id" name="dl_id" required>
+                                          <option value="" disabled selected>----- กรุณาเลือก -----</option>
+                                            <?php $sql = "SELECT * FROM dealer";
+                                            $result = $conn->query($sql);
+                                            while ($row = $result->fetch_assoc()) {
+                                                    ?>
+                                                    <option value="<?php echo $row['dl_id']; ?>"><?php echo $row["dl_nameshop"]; ?></option>
+                                                      <?php } ?>
+                                                      </select>
+                                    <div class="invalid-feedback">
+                                        กรุณาเลือกชื่อร้านผู้จำหน่าย
+                                    </div>
+                                </div>
+                            </div>
                         <div class="card-footer text-center">
                             <input type="submit" name="submit" class="btn btn-outline-primary" value="ยืนยัน">
                             <a class="btn btn-outline-danger" href="../product.php">ย้อนกลับ</a>
                         </div>
-
-                    </form>
+                        </form>
                 </div>
             </div>
         </div>

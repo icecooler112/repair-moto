@@ -3,7 +3,7 @@
 <?php
  $id = $_GET['id'];
 if (isset($id)){
-        $sql = "DELETE FROM user WHERE `user`.`id` = '".$id."'";
+        $sql = "DELETE FROM user WHERE `user`.`user_id` = '".$id."'";
         $result = $conn->query($sql);
 
 if ($conn->affected_rows){
