@@ -22,9 +22,8 @@
             if(move_uploaded_file($_FILES['image']['tmp_name'], '../upload/' .$new_name)){
 
 
-                $sql = "INSERT INTO `product` (`id`, `pname`, `p_id`, `price`, `numproduct`, `detail`, `image`, `dl_id`, `dl_insurance`,`dl_date`)
+                $sql = "INSERT INTO `product` (`p_id`, `pname`,`price`, `numproduct`, `detail`, `image`, `dl_id`, `dl_insurance`,`dl_date`)
                         VALUES (NULL, '".$_POST['pname']."',
-                           '".$_POST['p_id']."',
                             '".$_POST['price']."',
                              '".$_POST['numproduct']."',
                               '".$_POST['detail']."' ,
@@ -63,15 +62,6 @@
                                     <input type="text" class="form-control" id="pname" name="pname" required>
                                     <div class="invalid-feedback">
                                         กรุณากรอกชื่อสินค้า
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="p_id" class="col-sm-3 col-form-label">รหัสสินค้า</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="p_id" name="p_id" required>
-                                    <div class="invalid-feedback">
-                                        กรุณากรอกรหัสสินค้า
                                     </div>
                                 </div>
                             </div>

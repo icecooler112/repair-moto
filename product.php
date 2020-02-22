@@ -41,7 +41,7 @@
                     <a href="product.php"><i class="fas fa-box"></i> ข้อมูลสินค้า</a>
                 </li>
                 <li>
-                    <a href="dl_shop.php"><i class="fas fa-shopping-cart"></i> ข้อมูลผู้จำหน่ายสินค้า</a>
+                    <a href="dl_shop.php"><i class="fas fa-truck"></i> ข้อมูลผู้จำหน่ายสินค้า</a>
                 </li>
                 <li>
                     <a href="show.php"><i class="fas fa-chart-line"></i> รายงาน</a>
@@ -112,7 +112,6 @@
     <tr>
       <th width="50">#</th>
       <th width="300">รูปภาพ</th>
-      <th width="300">รหัสสินค้า</th>
       <th width="1600">ชื่อสินค้า</th>
       <th width="600">ราคาต่อชิ้น</th>
       <th width="600">จำนวนสินค้า</th>
@@ -125,7 +124,7 @@
   <?php
           $search=isset($_GET['search']) ? $_GET['search']:'';
 
-          $sql = "SELECT product.id, product.pname, product.p_id, product.price, product.numproduct, product.detail, product.image, dealer.dl_nameshop, dealer.dl_phone, product.dl_insurance
+          $sql = "SELECT product.p_id, product.pname, product.price, product.numproduct, product.detail, product.image, dealer.dl_nameshop, dealer.dl_phone, product.dl_insurance
                   FROM `product`
                   INNER JOIN dealer
                   ON dealer.dl_id = product.dl_id
@@ -140,26 +139,25 @@
               <td><?php echo $num; ?></td>
               <td>
               <?php if(isset($_SESSION['id'])) { ?>
-              <img src="upload/<?php echo $_SESSION['image'];?>" class="figure-img img-fluid rounded" width="100" height="100" alt="">
+              <img src="upload/<?php echo $_SESSION['image'];?>" class="figure-img img-fluid rounded" width="200" height="200" alt="">
               <?php } ?>
               </td>
-              <td><?php echo $row['p_id']; ?></td>
               <td><?php echo $row['pname']; ?></td>
               <td><?php echo $row['price']; ?> บาท</td>
               <td><?php echo $row['numproduct']; ?></td>
               <td>
-                <a href="product_manage/detail.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-primary  ">
+                <a href="product_manage/detail.php?id=<?php echo $row['p_id']; ?>" class="btn btn-sm btn-outline-primary  ">
                   <i class="fas fa-eye"></i> ดูเพิ่ม
                 </a>
               </td>
               <td>
-                <a href="product_manage/edit_product.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-warning ">
+                <a href="product_manage/edit_product.php?id=<?php echo $row['p_id']; ?>" class="btn btn-sm btn-outline-warning ">
                   <i class="fas fa-edit"></i> แก้ไข
                 </a>
               </td>
               <td>
-                <?php if ($row['id']) { ?>
-                  <a href="#" onclick="deleteItem(<?php echo $row['id']; ?>);" class="btn btn-sm btn-outline-danger">
+                <?php if ($row['p_id']) { ?>
+                  <a href="#" onclick="deleteItem(<?php echo $row['p_id']; ?>);" class="btn btn-sm btn-outline-danger">
                     <i class="fas fa-trash"></i> ลบ
                   </a>
                 <?php } ?>

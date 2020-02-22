@@ -25,19 +25,28 @@
             </div>
 
             <ul class="list-unstyled components">
-                <li>
-                    <a href="../index.php">รายงาน</a>
-                </li>
-                <li  >
-                    <a href="../user_list.php">ข้อมูลลูกค้า</a>
-                </li>
-                <li>
-                    <a href="../rp_history.php">ประวัติการซ่อม</a>
-                </li>
-                <li class="active">
-                    <a href="../product.php">ข้อมูลสินค้า</a>
-                </li>
-            </ul>
+              <li>
+                  <a href="index.php"><i class="fas fa-toolbox mr-1"></i>เพิ่มข้อมูลการซ่อม</a>
+              </li>
+              <li  >
+                  <a href="user_list.php"><i class="fas fa-users"></i> ข้อมูลลูกค้า</a>
+              </li>
+              <li>
+                  <a href="staff.php"><i class="fas fa-user-cog"></i> ข้อมูลพนักงาน</a>
+              </li>
+              <li>
+                  <a href="rp_history.php"><i class="fas fa-bell"></i> ประวัติการซ่อม</a>
+              </li>
+              <li class="active">
+                  <a href="product.php"><i class="fas fa-box"></i> ข้อมูลสินค้า</a>
+              </li>
+              <li>
+                  <a href="dl_shop.php"><i class="fas fa-truck"></i> ข้อมูลผู้จำหน่ายสินค้า</a>
+              </li>
+              <li>
+                  <a href="show.php"><i class="fas fa-chart-line"></i> รายงาน</a>
+              </li>
+          </ul>
 
             <ul class="list-unstyled CTAs">
                 <li>
@@ -92,10 +101,10 @@
             </nav>
             <?php
                             $id = $_GET['id'];
-                             $sql = "SELECT product.id, product.pname, product.p_id, product.price, product.numproduct, product.detail, product.image, dealer.dl_nameshop, dealer.dl_phone, product.dl_insurance, product.dl_date
+                             $sql = "SELECT product.p_id, product.pname, product.price, product.numproduct, product.detail, product.image, dealer.dl_nameshop, dealer.dl_phone, product.dl_insurance, product.dl_date
                                      FROM `product`
                                      INNER JOIN dealer
-                                     ON dealer.dl_id = product.dl_id WHERE id = '" . $id . "' ";
+                                     ON dealer.dl_id = product.dl_id WHERE p_id = '" . $id . "' ";
                             $result = $conn->query($sql);
                             while ($row = $result->fetch_assoc()) {
                                 $_SESSION['image'] = $row['image'];
@@ -109,8 +118,7 @@
                             <div class="report_name_th">
                             <?php if(isset($_SESSION['id'])) { ?>
                             <img src="../upload/<?php echo $_SESSION['image'];?>" class="figure-img img-fluid rounded" width="300" height="300" alt="">
-                            <?php } ?></div>
-                            <div class="report_name_th"><b>รหัสสินค้า </b> : <label><?php echo $row['p_id']; ?></label></div>
+                          <?php } ?></div><br>
                             <div class="report_name_th"><b>ชื่อสินค้า </b> : <label><?php echo $row['pname']; ?></label></div>
                             <div class="report_name_th"><b>ราคาสินค้าต่อชิ้น </b> : <label><?php echo $row['price']; ?> <b>บาท</b></label></div>
                             <hr>

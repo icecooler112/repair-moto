@@ -42,7 +42,7 @@
                     <a href="product.php"><i class="fas fa-box"></i> ข้อมูลสินค้า</a>
                 </li>
                 <li>
-                    <a href="dl_shop.php"><i class="fas fa-shopping-cart"></i> ข้อมูลผู้จำหน่ายสินค้า</a>
+                    <a href="dl_shop.php"><i class="fas fa-truck"></i> ข้อมูลผู้จำหน่ายสินค้า</a>
                 </li>
                 <li >
                     <a href="show.php"><i class="fas fa-chart-line"></i> รายงาน</a>
